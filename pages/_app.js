@@ -1,4 +1,5 @@
 import Script from "next/script";
+import { Analytics } from "@vercel/analytics/react";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.css";
 import "slick-carousel/slick/slick.css";
@@ -9,6 +10,7 @@ import "@styles/scss/Global.scss";
 export default function App({ Component, pageProps }) {
   return (
     <>
+      <Analytics />
       <Component {...pageProps} />
       <Script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" />
       <Script
