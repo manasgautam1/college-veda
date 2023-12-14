@@ -63,7 +63,7 @@ const slickSettings = {
   initialSlide: 0,
   swipeToSlide: true,
   gap: 40,
-  arrows:false,
+  arrows: false,
   responsive: [
     {
       breakpoint: 600,
@@ -119,10 +119,11 @@ const TestimonialsSection = () => {
         <div className={styles.testimonialsSection}>
           <div className="section-title mb-2">What Our Students Says?</div>
           <div className="section-subtitle">
-          At College Veda, our commitment to excellence is reflected in the success stories of our Students.
+            At College Veda, our commitment to excellence is reflected in the
+            success stories of our Students.
           </div>
           <div className={`${styles.testimonialsList} mt-sm-5`}>
-            <CustomSlick overrideConfiguration = {...slickSettings}>
+            <CustomSlick overrideConfiguration={{ ...slickSettings }}>
               {testimonialData.map((item, index) => (
                 <TestimonialCard
                   data={item}

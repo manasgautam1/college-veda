@@ -13,7 +13,7 @@ const slickSettings = {
   initialSlide: 0,
   swipeToSlide: true,
   gap: 40,
-  arrows:false,
+  arrows: false,
   responsive: [
     {
       breakpoint: 600,
@@ -30,18 +30,18 @@ const slickSettings = {
   ],
 };
 
-const popularStates= [
+const popularStates = [
   {
     id: 1,
     name: "Delhi",
   },
   {
     id: 2,
-    name: "Uttar Pradesh"
-  }, 
+    name: "Uttar Pradesh",
+  },
   {
     id: 3,
-    name: "Maharashtra"
+    name: "Maharashtra",
   },
   {
     id: 4,
@@ -49,35 +49,37 @@ const popularStates= [
   },
   {
     id: 5,
-    name: "Uttarakhand"
+    name: "Uttarakhand",
   },
   {
     id: 6,
-    name: "Punjab"
-  }
-]
+    name: "Punjab",
+  },
+];
 
-const ExploreStatesCard = ({data}) => {
+const ExploreStatesCard = ({ data }) => {
   return (
-    <div className={`${styles.exportStateCard} d-flex flex-column align-items-center justify-content-center`}>
+    <div
+      className={`${styles.exportStateCard} d-flex flex-column align-items-center justify-content-center`}
+    >
       <div className={styles.img}>
-      <Image
-        src="/assets/images/home/colleges/college-cover.webp"
-        width="0"
-        height="0"
-        className="w-100 h-auto"
-        sizes="100vw"
-        alt="brand-logo"
-        draggable={false}
-      />
+        <Image
+          src="/assets/images/home/colleges/college-cover.webp"
+          width="0"
+          height="0"
+          className="w-100 h-auto"
+          sizes="100vw"
+          alt="brand-logo"
+          draggable={false}
+        />
       </div>
-      <div className={styles.title}>
-        {data.name}
-      </div>
-      <Link href="/colleges" className={`${styles.exploreBtn} btn`}>Explore College <i className="fa fa-arrow-right ms-1" /></Link>
+      <div className={styles.title}>{data.name}</div>
+      <Link href="/colleges" className={`${styles.exploreBtn} btn`}>
+        Explore College <i className="fa fa-arrow-right ms-1" />
+      </Link>
     </div>
-  )
-}
+  );
+};
 
 const ExploreSection = () => {
   return (
@@ -86,17 +88,18 @@ const ExploreSection = () => {
         <div className={styles.exploreSection}>
           <div className="section-title mb-2">Explore States</div>
           <div className="section-subtitle">
-          Each region presents a unique blend of academic excellence, cultural heritage, and specialized learning environments.
+            Each region presents a unique blend of academic excellence, cultural
+            heritage, and specialized learning environments.
           </div>
           <div className={`${styles.collegesList} mt-4`}>
-          <CustomSlick overrideConfiguration = {...slickSettings}>
-          {popularStates?.map((item, index) => (
-            <ExploreStatesCard
-              data={item}
-              key={`testimonial-card-${index}`}
-            />
-          ))}
-        </CustomSlick>
+            <CustomSlick overrideConfiguration={{ ...slickSettings }}>
+              {popularStates?.map((item, index) => (
+                <ExploreStatesCard
+                  data={item}
+                  key={`testimonial-card-${index}`}
+                />
+              ))}
+            </CustomSlick>
           </div>
         </div>
       </div>
