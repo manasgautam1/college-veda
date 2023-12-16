@@ -47,7 +47,7 @@ const FaqSection = () => {
                 <h2 className="">Frequently Asked Questions</h2>
               </div>
               <p>
-                {`If you're interested in doing MBA, BBA, or PGDM, Collegeveda can
+                {`If you're interested in doing BAMS, Collegeveda can
                 show you lots of information about different colleges and what
                 they offer. Connect with us today.`}
               </p>
