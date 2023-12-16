@@ -8,49 +8,49 @@ const testimonialData = [
     id: 1,
     img: "/assets/images/home/testimonial/testimonial-1.webp",
     review:
-      "Collegeveda was my guiding light throughout my MBA journey. Their personalized recommendations led me to the perfect program that aligned with my goals. The application assistance and expert advice were invaluable. Thanks to Collegeveda, I'm now booming in my dream job.",
+      "Collegeveda was my guiding light throughout my BAMS journey. Their personalized recommendations led me to the perfect program that aligned with my goals. The application assistance and expert advice were invaluable. Thanks to Collegeveda, I'm now booming in my dream job.",
     name: "Rahul Singh",
-    title: "MBA Graduate",
+    title: "BAMS Graduate",
   },
   {
     id: 2,
     img: "/assets/images/home/testimonial/testimonial-2.webp",
     review:
-      "As a high school student, I was overwhelmed by the options for BBA programs. Collegeveda's platform made it easy to explore and compare different universities. The user reviews helped me make an informed decision, and their scholarship information was a game-changer.",
+      "As a high school student, I was overwhelmed by the options for BAMS programs. Collegeveda's platform made it easy to explore and compare different universities. The user reviews helped me make an informed decision, and their scholarship information was a game-changer.",
     name: "Riya Aggarwal",
-    title: "BBA Student",
+    title: "BAMS Student",
   },
   {
     id: 3,
     img: "/assets/images/home/testimonial/testimonial-3.webp",
     review:
-      "Applying for PGDM programs was a complex process, but Collegeveda simplified it. Their regular updates on deadlines and admission tests kept me on track. The expert guidance I received boosted my confidence during interviews. I'm grateful for Collegeveda's support",
+      "Applying for BAMS programs was a complex process, but Collegeveda simplified it. Their regular updates on deadlines and admission tests kept me on track. The expert guidance I received boosted my confidence during interviews. I'm grateful for Collegeveda's support",
     name: "Abhishek Sharma",
-    title: "PGDM Applicant",
+    title: "BAMS Applicant",
   },
   {
     id: 1,
     img: "/assets/images/home/testimonial/testimonial-1.webp",
     review:
-      "Collegeveda was my guiding light throughout my MBA journey. Their personalized recommendations led me to the perfect program that aligned with my goals. The application assistance and expert advice were invaluable. Thanks to Collegeveda, I'm now booming in my dream job.",
+      "Collegeveda was my guiding light throughout my BAMS journey. Their personalized recommendations led me to the perfect program that aligned with my goals. The application assistance and expert advice were invaluable. Thanks to Collegeveda, I'm now booming in my dream job.",
     name: "Rahul Singh",
-    title: "MBA Graduate",
+    title: "BAMS Graduate",
   },
   {
     id: 2,
     img: "/assets/images/home/testimonial/testimonial-2.webp",
     review:
-      "As a high school student, I was overwhelmed by the options for BBA programs. Collegeveda's platform made it easy to explore and compare different universities. The user reviews helped me make an informed decision, and their scholarship information was a game-changer.",
+      "As a high school student, I was overwhelmed by the options for BAMS programs. Collegeveda's platform made it easy to explore and compare different universities. The user reviews helped me make an informed decision, and their scholarship information was a game-changer.",
     name: "Riya Aggarwal",
-    title: "BBA Student",
+    title: "BAMS Student",
   },
   {
     id: 3,
     img: "/assets/images/home/testimonial/testimonial-3.webp",
     review:
-      "Applying for PGDM programs was a complex process, but Collegeveda simplified it. Their regular updates on deadlines and admission tests kept me on track. The expert guidance I received boosted my confidence during interviews. I'm grateful for Collegeveda's support",
+      "Applying for BAMS programs was a complex process, but Collegeveda simplified it. Their regular updates on deadlines and admission tests kept me on track. The expert guidance I received boosted my confidence during interviews. I'm grateful for Collegeveda's support",
     name: "Abhishek Sharma",
-    title: "PGDM Applicant",
+    title: "BAMS Applicant",
   },
 ];
 

@@ -29,7 +29,7 @@ const FormSection = () => {
                     type="text"
                     className="form-control"
                     id="name"
-                    placeholder="John Doe"
+                    placeholder="Your name"
                   />
                 </div>
                 <div className="form-group">
@@ -38,16 +38,16 @@ const FormSection = () => {
                     type="email"
                     className="form-control"
                     id="email"
-                    placeholder="john@yourcompany.com"
+                    placeholder="Your email"
                   />
                 </div>
                 <div className="form-group">
-                  <label htmlFor="phone">Email</label>
+                  <label htmlFor="phone">Phone</label>
                   <input
                     type="tel"
                     className="form-control"
                     id="phone"
-                    placeholder="123-456-7890"
+                    placeholder="Your phone"
                   />
                 </div>
                 <button className="btn" type="submit">

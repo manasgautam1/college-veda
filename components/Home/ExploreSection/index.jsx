@@ -34,26 +34,27 @@ const popularStates = [
   {
     id: 1,
     name: "Delhi",
+    imageUrl: "/assets/images/home/states/delhi.webp",
   },
   {
     id: 2,
     name: "Uttar Pradesh",
+    imageUrl: "/assets/images/home/states/uttar-pradesh.webp",
   },
   {
     id: 3,
-    name: "Maharashtra",
+    name: "Punjab",
+    imageUrl: "/assets/images/home/states/punjab.webp",
   },
   {
     id: 4,
-    name: "Gujarat",
+    name: "Haryana",
+    imageUrl: "/assets/images/home/states/haryana.webp",
   },
   {
     id: 5,
     name: "Uttarakhand",
-  },
-  {
-    id: 6,
-    name: "Punjab",
+    imageUrl: "/assets/images/home/states/uttrakhand.webp",
   },
 ];
 
@@ -64,7 +65,7 @@ const ExploreStatesCard = ({ data }) => {
     >
       <div className={styles.img}>
         <Image
-          src="/assets/images/home/colleges/college-cover.webp"
+          src={data.imageUrl}
           width="0"
           height="0"
           className="w-100 h-auto"
@@ -74,7 +75,10 @@ const ExploreStatesCard = ({ data }) => {
         />
       </div>
       <div className={styles.title}>{data.name}</div>
-      <Link href="/colleges" className={`${styles.exploreBtn} btn`}>
+      <Link
+        href={`/colleges?state=${data.name}`}
+        className={`${styles.exploreBtn} btn`}
+      >
         Explore College <i className="fa fa-arrow-right ms-1" />
       </Link>
     </div>

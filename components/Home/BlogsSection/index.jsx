@@ -7,7 +7,7 @@ const blogsData = [
   {
     id: 1,
     img: "/assets/images/home/testimonial/testimonial-1.webp",
-    title: "Collegeveda was my guiding light throughout my MBA journey.",
+    title: "Collegeveda was my guiding light throughout my BAMS journey.",
     date: "February 13, 2022",
     tag: "Marketing",
   },
@@ -15,7 +15,7 @@ const blogsData = [
     id: 2,
     img: "/assets/images/home/testimonial/testimonial-2.webp",
     title:
-      "As a high school student, I was overwhelmed by the options for BBA programs.",
+      "As a high school student, I was overwhelmed by the options for BAMS programs.",
     date: "February 13, 2022",
     tag: "Marketing",
   },
@@ -23,7 +23,7 @@ const blogsData = [
     id: 3,
     img: "/assets/images/home/testimonial/testimonial-3.webp",
     title:
-      "Applying for PGDM programs was a complex process, but Collegeveda simplified it.",
+      "Applying for BAMS programs was a complex process, but Collegeveda simplified it.",
     date: "February 13, 2022",
     tag: "Marketing",
   },
@@ -31,7 +31,7 @@ const blogsData = [
     id: 2,
     img: "/assets/images/home/testimonial/testimonial-2.webp",
     title:
-      "As a high school student, I was overwhelmed by the options for BBA programs.",
+      "As a high school student, I was overwhelmed by the options for BAMS programs.",
     date: "February 13, 2022",
     tag: "Marketing",
   },
@@ -39,7 +39,7 @@ const blogsData = [
     id: 3,
     img: "/assets/images/home/testimonial/testimonial-3.webp",
     title:
-      "Applying for PGDM programs was a complex process, but Collegeveda simplified it.",
+      "Applying for BAMS programs was a complex process, but Collegeveda simplified it.",
     date: "February 13, 2022",
     tag: "Marketing",
   },
