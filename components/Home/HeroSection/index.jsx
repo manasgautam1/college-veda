@@ -2,8 +2,15 @@ import React from "react";
 import styles from "./HeroSection.module.scss";
 import { sliderData } from "@/constants/heroSliderData";
 import CustomSlick from "@/components/common/CustomSlick";
+import { useRouter } from "next/router";
 
 const HeroSectionSlide = ({ data }) => {
+  const router = useRouter();
+
+  const handleGetStartedBtnClick = () => {
+    router.push("/colleges");
+  };
+
   return (
     <div
       className={styles.heroSlide}
@@ -25,6 +32,7 @@ const HeroSectionSlide = ({ data }) => {
           >
             <button
               className={`${styles.primaryButton} btn d-flex align-items-center justify-content-center`}
+              onClick={handleGetStartedBtnClick}
             >
               Get started <i className="fa fa-arrow-right" />
             </button>

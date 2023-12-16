@@ -26,7 +26,7 @@ const AboutSection = () => {
       <div className="container-lg">
         <div className={styles.aboutSection}>
           <div className="row align-items-center">
-            <div className="col-sm-4 order-sm-1 order-2">
+            <div className="col-sm-5 order-sm-1 order-2">
               <Image
                 src="/assets/images/home/about/about-img.webp"
                 width="0"
@@ -38,7 +38,7 @@ const AboutSection = () => {
               />
             </div>
             <div
-              className={`${styles.aboutContent} col-sm-8  order-sm-2 order-1`}
+              className={`${styles.aboutContent} col-sm-7  order-sm-2 order-1`}
             >
               <span className="text-uppercase">More about us</span>
               <div className={`${styles.title} mb-3`}>

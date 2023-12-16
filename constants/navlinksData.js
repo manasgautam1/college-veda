@@ -11,21 +11,26 @@ export const NAVLINKS = [
   },
   {
     id: 3,
+    name: "Government colleges",
+    url: "/colleges?collegeType=Government",
+  },
+  {
+    id: 4,
     name: "Private colleges",
     url: "/colleges?collegeType=Private",
   },
   {
-    id: 4,
+    id: 5,
     name: "Blogs",
     url: "/blogs",
   },
   {
-    id: 5,
+    id: 6,
     name: "About us",
     url: "/about",
   },
   {
-    id: 6,
+    id: 7,
     name: "Contact us",
     url: "/contact",
   },

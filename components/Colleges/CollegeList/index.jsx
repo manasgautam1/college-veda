@@ -106,6 +106,8 @@ const CollegeList = () => {
                   className="form-control"
                   id="usr"
                   placeholder="Search college"
+                  name="fullName"
+                  onChange={handleChange}
                 />
                 <select
                   className={`form-select ${styles.inputSelect}`}
