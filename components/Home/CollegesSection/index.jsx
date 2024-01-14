@@ -153,9 +153,7 @@ const CollegesSection = () => {
                       className={`${styles.buttonsContainer} d-flex align-items-center justify-content-start mt-3`}
                     >
                       <Link
-                        href={`/colleges/${stringToUrl(item?.fullName)}/${
-                          item?._id
-                        }`}
+                        href={`/colleges/${item?.slug || item?._id}`}
                         className={`${styles.primaryButton} btn`}
                       >
                         Read more

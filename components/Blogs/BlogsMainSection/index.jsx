@@ -1,15 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from "./BlogsMainSection.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import { GetFirstParaFromRichText } from "@/utils/helper";
+import moment from "moment";
+import BlogPagination from "./BlogPagination";
 
-const BlogsMainSection = () => {
+const BlogsMainSection = ({ blogs }) => {
+  const [currentPage, setCurrentPage] = useState(1);
+  const blogsPerPage = 3;
+  const indexOfLastPage = currentPage * blogsPerPage;
+  // index of first page
+  const indexOfFirstPage = indexOfLastPage - blogsPerPage;
+  // current blogs
+  const currentBlogs = blogs?.slice(indexOfFirstPage, indexOfLastPage);
+
+  const paginate = (number) => {
+    setCurrentPage(number);
+  };
+
   return (
     <div className={styles.blogsContainer}>
-      {[1, 2, 3].map((item) => (
-        <div className={`${styles.blogContainer} mb-4`}>
+      {currentBlogs?.map((item, index) => (
+        <div key={`blog-${index}`} className={`${styles.blogContainer} mb-4`}>
           <Image
-            src={"/assets/images/home/colleges/college-cover.webp"}
+            src={item?.blogPic}
             width="0"
             height="0"
             className="w-100 h-auto"
@@ -22,25 +37,16 @@ const BlogsMainSection = () => {
               className={`${styles.blogDetails} d-flex align-items-center justify-content-start gap-4 mb-4`}
             >
               <div className={styles.detailContainer}>
-                <i class="far fa-calendar-check me-1" /> July 21, 2024
+                <i class="far fa-calendar-check me-1" />{" "}
+                {moment(item?.createdAt)?.format("LLLL")}
               </div>
               <div className={`${styles.detailContainer} text-uppercase`}>
-                <i class="far fa-user me-1" /> samrat
-              </div>
-              <div className={styles.detailContainer}>
-                <i class="far fa-comments me-1" /> 2 Comments
+                <i class="far fa-user me-1" /> {item?.author}
               </div>
             </div>
-            <div className={`${styles.blogTitle} mb-3`}>
-              The Challenge Of Global Learning In Public Education
-            </div>
+            <div className={`${styles.blogTitle} mb-3`}>{item?.title}</div>
             <div className={`${styles.blogData} mb-3`}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur. Excepteur sint occaecat
+              {GetFirstParaFromRichText(item?.body)}
             </div>
             <Link
               href="/"
@@ -51,6 +57,14 @@ const BlogsMainSection = () => {
           </div>
         </div>
       ))}
+      {blogs.length > blogsPerPage && (
+        <BlogPagination
+          blogPerPage={blogsPerPage}
+          toltalBlogs={blogs.length}
+          currentPage={currentPage}
+          paginate={paginate}
+        />
+      )}
     </div>
   );
 };

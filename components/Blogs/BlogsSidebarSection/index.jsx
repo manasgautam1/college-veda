@@ -2,18 +2,19 @@ import React from "react";
 import styles from "./BlogsSidebarSection.module.scss";
 import Image from "next/image";
 import Link from "next/link";
+import moment from "moment";
 
-const BlogsSidebarSection = () => {
+const BlogsSidebarSection = ({ blogs }) => {
   return (
     <div className={`${styles.sidebar} p-4`}>
       <div className={`${styles.title} mb-3`}>Recent Post</div>
       <div className={styles.sidebarList}>
-        {[1, 2, 3].map((item) => (
-          <div className={`${styles.sidebarItem} mb-3`}>
+        {blogs?.slice(0, 3)?.map((item, index) => (
+          <div key={`blog-${index}`} className={`${styles.sidebarItem} mb-3`}>
             <div className="row align-items-stretch">
               <div className="col-4">
                 <Image
-                  src={"/assets/images/home/colleges/college-cover.webp"}
+                  src={item?.blogPic}
                   width="0"
                   height="0"
                   className="w-100 h-auto"
@@ -23,9 +24,11 @@ const BlogsSidebarSection = () => {
                 />
               </div>
               <div className="col-8">
-                <div className={`${styles.date} mb-0`}>4 MARCH. 2022</div>
+                <div className={`${styles.date} mb-0`}>
+                  {moment(item?.createdAt).format("DD MMMM YYYY")}
+                </div>
                 <Link href="/" className={`${styles.blogTitle}`}>
-                  Don’t Underestimate The Software Administration UX
+                  {item?.title}
                 </Link>
               </div>
             </div>
