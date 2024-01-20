@@ -1,8 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./ExploreSection.module.scss";
 import CustomSlick from "@/components/common/CustomSlick";
 import Image from "next/image";
 import Link from "next/link";
+import { getStates } from "@/api";
+import Loader from "@/components/common/Loader";
 
 const slickSettings = {
   dots: false,
@@ -30,34 +32,6 @@ const slickSettings = {
   ],
 };
 
-const popularStates = [
-  {
-    id: 1,
-    name: "Delhi",
-    imageUrl: "/assets/images/home/states/delhi.webp",
-  },
-  {
-    id: 2,
-    name: "Uttar Pradesh",
-    imageUrl: "/assets/images/home/states/uttar-pradesh.webp",
-  },
-  {
-    id: 3,
-    name: "Punjab",
-    imageUrl: "/assets/images/home/states/punjab.webp",
-  },
-  {
-    id: 4,
-    name: "Haryana",
-    imageUrl: "/assets/images/home/states/haryana.webp",
-  },
-  {
-    id: 5,
-    name: "Uttarakhand",
-    imageUrl: "/assets/images/home/states/uttrakhand.webp",
-  },
-];
-
 const ExploreStatesCard = ({ data }) => {
   return (
     <div
@@ -65,7 +39,7 @@ const ExploreStatesCard = ({ data }) => {
     >
       <div className={styles.img}>
         <Image
-          src={data.imageUrl}
+          src={data?.coverImage}
           width="0"
           height="0"
           className="w-100 h-auto"
@@ -74,7 +48,7 @@ const ExploreStatesCard = ({ data }) => {
           draggable={false}
         />
       </div>
-      <div className={styles.title}>{data.name}</div>
+      <div className={styles.title}>{data?.name}</div>
       <Link
         href={`/colleges?state=${data.name}`}
         className={`${styles.exploreBtn} btn`}
@@ -86,6 +60,25 @@ const ExploreStatesCard = ({ data }) => {
 };
 
 const ExploreSection = () => {
+  const [states, setStates] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchStates = async () => {
+    try {
+      const res = await getStates();
+      console.log(res);
+      setStates(res?.data?.data);
+      setLoading(false);
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetchStates();
+  }, []);
+
   return (
     <section>
       <div className="container-lg py-sm-5 my-5">
@@ -96,14 +89,18 @@ const ExploreSection = () => {
             heritage, and specialized learning environments.
           </div>
           <div className={`${styles.collegesList} mt-4`}>
-            <CustomSlick overrideConfiguration={{ ...slickSettings }}>
-              {popularStates?.map((item, index) => (
-                <ExploreStatesCard
-                  data={item}
-                  key={`testimonial-card-${index}`}
-                />
-              ))}
-            </CustomSlick>
+            {loading ? (
+              <Loader />
+            ) : (
+              <CustomSlick overrideConfiguration={{ ...slickSettings }}>
+                {states?.slice(0, 5)?.map((item, index) => (
+                  <ExploreStatesCard
+                    data={item}
+                    key={`testimonial-card-${index}`}
+                  />
+                ))}
+              </CustomSlick>
+            )}
           </div>
         </div>
       </div>

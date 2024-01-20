@@ -14,3 +14,6 @@ export const getCollegesWithFilters = (data) =>
 //BLOGS
 export const getBlogs = () => API.get("/blogs");
 export const getBlogById = (blogId) => API.get(`/blogs/${blogId}`);
+
+//STATES
+export const getStates = () => API.get("/states");
