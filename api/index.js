@@ -17,3 +17,9 @@ export const getBlogById = (blogId) => API.get(`/blogs/${blogId}`);
 
 //STATES
 export const getStates = () => API.get("/states");
+
+//SHOWCASE
+export const getShowcase = () => API.get("/showcase");
+
+//TESTIMONIALS
+export const getTestimonials = () => API.get("/testimonials");

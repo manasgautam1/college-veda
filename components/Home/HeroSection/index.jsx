@@ -15,7 +15,7 @@ const HeroSectionSlide = ({ data }) => {
     <div
       className={styles.heroSlide}
       style={{
-        background: `url(${data?.img})`,
+        background: `url(${data?.image})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
         backgroundSize: "cover",
@@ -46,11 +46,11 @@ const HeroSectionSlide = ({ data }) => {
   );
 };
 
-const HeroSection = () => {
+const HeroSection = ({ data }) => {
   return (
     <div className={styles.slidesContainer}>
       <CustomSlick slickWrapperClassName={styles.slickWrapper}>
-        {sliderData?.map((item, index) => (
+        {data?.map((item, index) => (
           <HeroSectionSlide key={`hero-slide-${index}`} data={item} />
         ))}
       </CustomSlick>

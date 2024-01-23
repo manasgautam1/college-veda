@@ -1,4 +1,7 @@
 export const GetFirstParaFromRichText = (text) => {
+  if (!text || text.length === 0) {
+    return;
+  }
   const index1 = text.indexOf("&nbsp;");
   const index2 = text.indexOf("<br>");
   let para = "";
@@ -17,7 +20,6 @@ export const GetFirstParaFromRichText = (text) => {
       return para.split("<br>")?.[0];
     }
   }
-  return text;
 };
 
 export const stringToUrl = (str) => {

@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./BlogsSection.module.scss";
 import CustomSlick from "@/components/common/CustomSlick";
 import Image from "next/image";
+import { getBlogs } from "@/api";
+import Loader from "@/components/common/Loader";
+import moment from "moment";
+import Link from "next/link";
 
 const blogsData = [
   {
@@ -49,7 +53,7 @@ const slickSettings = {
   dots: true,
   infinite: false,
   speed: 500,
-  slidesToShow: 4,
+  slidesToShow: 3,
   slidesToScroll: 1,
   initialSlide: 0,
   swipeToSlide: true,
@@ -85,7 +89,7 @@ const BlogCard = ({ data }) => {
       <div className={`${styles.blogCard}`}>
         <div className={styles.blogImg}>
           <Image
-            src={data.img}
+            src={data?.blogPic}
             width="0"
             height="0"
             className="w-100 h-auto"
@@ -99,16 +103,18 @@ const BlogCard = ({ data }) => {
             <div
               className={`${styles.topContainer} d-flex align-items-center justify-content-between`}
             >
-              <div className={styles.date}>{data.date}</div>
-              <div className={styles.tag}>{data.tag}</div>
+              <div className={styles.date}>
+                {moment(data?.createdAt)?.format("LLLL")}
+              </div>
             </div>
-            <div className={styles.title}>{data.title}</div>
+            <div className={styles.title}>{data?.title}</div>
           </div>
-          <button
+          <Link
+            href={`blogs/${data?.slug}`}
             className={`${styles.btn} btn d-flex align-items-center justify-content-start px-0`}
           >
             Read more <i className="fa fa-arrow-right ms-2" />
-          </button>
+          </Link>
         </div>
       </div>
     </div>
@@ -116,6 +122,24 @@ const BlogCard = ({ data }) => {
 };
 
 const BlogsSection = () => {
+  const [loading, setLoading] = useState(false);
+  const [blogsList, setBlogsList] = useState([]);
+
+  useEffect(() => {
+    getBlogsList();
+    setLoading(true);
+  }, []);
+
+  const getBlogsList = async () => {
+    try {
+      const res = await getBlogs();
+      setBlogsList([...res?.data?.data]);
+      setLoading(false);
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
   return (
     <section>
       <div className="container-lg py-sm-5 my-5">
@@ -126,11 +150,15 @@ const BlogsSection = () => {
             Veda.
           </div>
           <div className={`${styles.blogsList} mt-sm-5`}>
-            <CustomSlick overrideConfiguration={{ ...slickSettings }}>
-              {blogsData.map((item, index) => (
-                <BlogCard data={item} key={`testimonial-card-${index}`} />
-              ))}
-            </CustomSlick>
+            {loading ? (
+              <Loader />
+            ) : (
+              <CustomSlick overrideConfiguration={{ ...slickSettings }}>
+                {blogsList?.map((item, index) => (
+                  <BlogCard data={item} key={`testimonial-card-${index}`} />
+                ))}
+              </CustomSlick>
+            )}
           </div>
         </div>
       </div>

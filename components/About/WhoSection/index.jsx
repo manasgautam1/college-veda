@@ -23,31 +23,31 @@ const WhoSection = () => {
             <div className={styles.content}>
               <span>WHO WE ARE</span>
               <div className={styles.title}>
-                Unlocking the Ancient Wisdom of Ayurveda!
+                We're the Ayurveda experts, unlocking ancient wisdom to make it
+                simple and cool.
               </div>
-              <div className={styles.desc}>
-                Compellingly procrastinate equity invested markets with
-                efficient process improvements. Collaboratively actualize
-                mission-critical partnerships with integrated portals.
-              </div>
+              <div className={styles.desc}></div>
               <div className={styles.list}>
                 <div className={styles.listItem}>
                   <span className={styles.iconContainer}>
                     <i className="fa fa-check" />
                   </span>
-                  Collegeveda for Students
+                  For Students: If you're a student, we've got your back! We
+                  help you figure out Ayurveda studies in an easy way.
                 </div>
                 <div className={styles.listItem}>
                   <span className={styles.iconContainer}>
                     <i className="fa fa-check" />
                   </span>
-                  Collegeveda for Instituitions
+                  For Institutions: If you're a school or college, we're here to
+                  make things smoother for you. Let's team up for success!
                 </div>
                 <div className={styles.listItem}>
                   <span className={styles.iconContainer}>
                     <i className="fa fa-check" />
                   </span>
-                  Collegeveda for Parents.
+                  For Parents: We're your allies in this Ayurveda journey. We've
+                  got the info you need to guide your awesome kids.
                 </div>
               </div>
               <Link href="/colleges" className={`${styles.button} btn`}>

@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./TestimonialsSection.module.scss";
 import CustomSlick from "@/components/common/CustomSlick";
 import Image from "next/image";
+import { getTestimonials } from "@/api";
+import Loader from "@/components/common/Loader";
 
 const testimonialData = [
   {
@@ -87,7 +89,7 @@ const TestimonialCard = ({ data }) => {
       <div className={`${styles.testimonialCard} text-center`}>
         <div className={styles.testimonialImg}>
           <Image
-            src={data.img}
+            src={data.photo}
             width="0"
             height="0"
             className="w-100 h-auto"
@@ -96,23 +98,33 @@ const TestimonialCard = ({ data }) => {
             draggable={false}
           />
         </div>
-        <div
-          className={`${styles.ratings} d-flex align-items-center justify-content-center`}
-        >
-          {[1, 2, 3, 4].map((index) => (
-            <i className="fas fa-star" key={`start-${index}`} />
-          ))}
-          <i className="far fa-star" />
-        </div>
-        <div className={styles.description}>{data.review}</div>
+        <div className={styles.description}>{data.message}</div>
         <div className={styles.name}>{data.name}</div>
-        <div className={styles.title}>{data.title}</div>
+        <div className={styles.title}>{data.position}</div>
       </div>
     </div>
   );
 };
 
 const TestimonialsSection = () => {
+  const [testimonials, setTestimonials] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchTestimonials = async () => {
+    try {
+      const res = await getTestimonials();
+      setTestimonials(res?.data?.data);
+      setLoading(false);
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetchTestimonials();
+  }, []);
+
   return (
     <section>
       <div className="container-lg py-sm-5 my-5">
@@ -123,14 +135,18 @@ const TestimonialsSection = () => {
             success stories of our Students.
           </div>
           <div className={`${styles.testimonialsList} mt-sm-5`}>
-            <CustomSlick overrideConfiguration={{ ...slickSettings }}>
-              {testimonialData.map((item, index) => (
-                <TestimonialCard
-                  data={item}
-                  key={`testimonial-card-${index}`}
-                />
-              ))}
-            </CustomSlick>
+            {loading ? (
+              <Loader />
+            ) : (
+              <CustomSlick overrideConfiguration={{ ...slickSettings }}>
+                {testimonials?.map((item, index) => (
+                  <TestimonialCard
+                    data={item}
+                    key={`testimonial-card-${index}`}
+                  />
+                ))}
+              </CustomSlick>
+            )}
           </div>
         </div>
       </div>

@@ -8,10 +8,10 @@ import TestimonialsSection from "./TestimonialsSection";
 import BlogsSection from "./BlogsSection";
 import FormSection from "./FormSection";
 
-const HomeComponent = () => {
+const HomeComponent = ({ showcase }) => {
   return (
     <>
-      <HeroSection />
+      <HeroSection data={showcase} />
       <BrandsSection />
       <AboutSection />
       <ExploreSection />
