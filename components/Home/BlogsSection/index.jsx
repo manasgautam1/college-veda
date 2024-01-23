@@ -7,48 +7,6 @@ import Loader from "@/components/common/Loader";
 import moment from "moment";
 import Link from "next/link";
 
-const blogsData = [
-  {
-    id: 1,
-    img: "/assets/images/home/testimonial/testimonial-1.webp",
-    title: "Collegeveda was my guiding light throughout my BAMS journey.",
-    date: "February 13, 2022",
-    tag: "Marketing",
-  },
-  {
-    id: 2,
-    img: "/assets/images/home/testimonial/testimonial-2.webp",
-    title:
-      "As a high school student, I was overwhelmed by the options for BAMS programs.",
-    date: "February 13, 2022",
-    tag: "Marketing",
-  },
-  {
-    id: 3,
-    img: "/assets/images/home/testimonial/testimonial-3.webp",
-    title:
-      "Applying for BAMS programs was a complex process, but Collegeveda simplified it.",
-    date: "February 13, 2022",
-    tag: "Marketing",
-  },
-  {
-    id: 2,
-    img: "/assets/images/home/testimonial/testimonial-2.webp",
-    title:
-      "As a high school student, I was overwhelmed by the options for BAMS programs.",
-    date: "February 13, 2022",
-    tag: "Marketing",
-  },
-  {
-    id: 3,
-    img: "/assets/images/home/testimonial/testimonial-3.webp",
-    title:
-      "Applying for BAMS programs was a complex process, but Collegeveda simplified it.",
-    date: "February 13, 2022",
-    tag: "Marketing",
-  },
-];
-
 const slickSettings = {
   dots: true,
   infinite: false,
@@ -126,8 +84,8 @@ const BlogsSection = () => {
   const [blogsList, setBlogsList] = useState([]);
 
   useEffect(() => {
-    getBlogsList();
     setLoading(true);
+    getBlogsList();
   }, []);
 
   const getBlogsList = async () => {
