@@ -20,7 +20,9 @@
     "react-bootstrap": "^2.9.0",
     "react-dom": "18.2.0",
     "react-icons": "^4.11.0",
+    "react-responsive-modal": "^6.4.2",
     "react-slick": "^0.29.0",
+    "react-toastify": "^10.0.4",
     "sass": "^1.69.4",
     "slick-carousel": "^1.8.1"
   },

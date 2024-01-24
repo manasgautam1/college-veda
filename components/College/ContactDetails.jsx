@@ -1,9 +1,46 @@
-import React from "react";
+import { submitEnquiry } from "@/api";
+import React, { useState } from "react";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { FaLocationDot } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
+import ToastMessage from "../common/Toasts";
+
+const defaultState = {
+  fullName: "",
+  phone: "",
+  email: "",
+  message: "",
+  source: "Contact details form",
+};
 
 const ContactDetails = () => {
+  const [formData, setFormData] = useState(defaultState);
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const res = await submitEnquiry(formData);
+      ToastMessage({
+        type: "success",
+        message:
+          "Contact form submitted succesfully!, our team will connect with you shortly.",
+      });
+      setFormData({ ...defaultState });
+    } catch (err) {
+      ToastMessage({
+        type: "error",
+        message: "Oops something went wrong!",
+      });
+      setFormData({ ...defaultState });
+      console.log("error", err);
+    }
+  };
+
   return (
     <section className="container-lg mb-5">
       <div className="row">
@@ -40,7 +77,7 @@ const ContactDetails = () => {
         </div>
         <div className="col-sm-7 pe-0">
           <div className="p-sm-5 py-sm-0 py-5 rounded d-flex flex-column align-items-center contact-form-college h-100">
-            <form action=" " className="">
+            <form action="#" onSubmit={handleSubmit}>
               <div className="input-group mb-4">
                 <input
                   type="text"
@@ -48,6 +85,10 @@ const ContactDetails = () => {
                   placeholder="Enter Your Name"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
+                  required
+                  name="fullName"
+                  onChange={handleChange}
+                  value={formData.fullName}
                 />
               </div>
               <div className="input-group mb-4">
@@ -57,6 +98,10 @@ const ContactDetails = () => {
                   placeholder="Enter Your Email"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
+                  required
+                  name="email"
+                  onChange={handleChange}
+                  value={formData.email}
                 />
               </div>
               <div className="input-group mb-4">
@@ -66,6 +111,10 @@ const ContactDetails = () => {
                   placeholder="Enter Your Phone"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
+                  required
+                  name="phone"
+                  onChange={handleChange}
+                  value={formData.phone}
                 />
               </div>
               <div className="input-group mb-4">
@@ -76,6 +125,10 @@ const ContactDetails = () => {
                   placeholder="Write Your Message"
                   aria-label="Recipient's username"
                   aria-describedby="basic-addon2"
+                  required
+                  name="message"
+                  onChange={handleChange}
+                  value={formData.message}
                 />
               </div>
               <button

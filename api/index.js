@@ -23,3 +23,6 @@ export const getShowcase = () => API.get("/showcase");
 
 //TESTIMONIALS
 export const getTestimonials = () => API.get("/testimonials");
+
+//Enquiry
+export const submitEnquiry = (payload) => API.post("/contact", payload);

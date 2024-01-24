@@ -108,6 +108,7 @@ const CollegeList = () => {
                   placeholder="Search college"
                   name="fullName"
                   onChange={handleChange}
+                  value={filters.fullName}
                 />
                 <select
                   className={`form-select ${styles.inputSelect}`}
@@ -157,6 +158,13 @@ const CollegeList = () => {
               <button
                 onClick={handleResetBtnClick}
                 className={`${styles.resetButton} btn w-50 text-center`}
+                disabled={
+                  filters.city === "" ||
+                  filters.state === "" ||
+                  filters.fullName === "" ||
+                  filters.collegeType === "" ||
+                  filters.page === 1
+                }
               >
                 Reset
               </button>
