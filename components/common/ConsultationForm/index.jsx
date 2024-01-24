@@ -108,9 +108,9 @@ const ConsultationForm = ({ handleClose }) => {
                   type="tel"
                   className={`form-control ${styles.formControl}`}
                   id="mobile"
-                  name="phone"
                   placeholder="Mobile"
                   required
+                  name="phone"
                   onChange={handleChange}
                   value={formData.phone}
                 />
@@ -120,9 +120,9 @@ const ConsultationForm = ({ handleClose }) => {
                   type="email"
                   className={`form-control ${styles.formControl}`}
                   id="email"
-                  name="email"
                   placeholder="Email"
                   required
+                  name="email"
                   onChange={handleChange}
                   value={formData.email}
                 />
@@ -131,10 +131,10 @@ const ConsultationForm = ({ handleClose }) => {
                 <textarea
                   className={`form-control ${styles.formControl}`}
                   id="interest"
-                  name="message"
                   placeholder="Interested in?"
-                  required
                   rows={3}
+                  required
+                  name="message"
                   onChange={handleChange}
                   value={formData.message}
                 />
