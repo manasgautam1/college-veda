@@ -23,7 +23,7 @@ const infoContent = [
 const AboutSection = () => {
   return (
     <section>
-      <div className="container-lg">
+      <div className="container-lg mt-5 pt-md-5">
         <div className={styles.aboutSection}>
           <div className="row align-items-center">
             <div className="col-sm-5 order-sm-1 order-2">

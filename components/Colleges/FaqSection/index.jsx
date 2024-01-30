@@ -5,33 +5,35 @@ import Link from "next/link";
 const faqs = [
   {
     id: 1,
-    question: "Is there a cost to use Collegeveda's services?",
+    question: "Why choose Ayurveda colleges?",
     answer:
-      "Collegeveda offers both free and premium services. While basic program exploration and recommendations are usually available for free, premium features might include personalized application assistance, expert consultations, and additional resources.",
+      "Ayurveda colleges offer a holistic approach to healthcare, focusing on natural healing and personalized treatments.",
   },
   {
     id: 2,
-    question: "Can Collegeveda help with the application process?",
+    question:
+      "What are the benefits of studying Ayurveda in a dedicated college?",
     answer:
-      "Yes, Collegeveda provides guidance to help with the application process. This could include tips on writing effective statements of purpose, preparing for interviews, and understanding admission requirements.",
+      "Ayurveda colleges provide specialized education, hands-on experience, and a deep connection with traditional practices.",
   },
   {
     id: 3,
-    question: "Can Collegeveda help me find scholarships?",
+    question:
+      "How does Ayurveda education promote a patient-centered approach?",
     answer:
-      "Yes, Collegeveda provides information about scholarships and financial help opportunities available for the programs you're interested in. This can help you identify potential sources of funding for your education.",
+      "Ayurveda emphasizes personalized healthcare, considering individual constitutions and imbalances for tailored treatments.",
   },
   {
     id: 4,
-    question: "How can personalized recommendations benefit me?",
+    question: "Are Ayurveda colleges globally recognized?",
     answer:
-      "This can save you time by narrowing down your choices to programs that closely match your goals and interests.",
+      "Many Ayurveda colleges adhere to international standards and hold accreditation, providing opportunities for global practice and research.",
   },
   {
     id: 5,
-    question: "Can I connect with other students through Collegeveda?",
+    question: "How does Ayurveda contribute to sustainable healthcare?",
     answer:
-      "Some platforms offer networking opportunities, allowing you to connect with other students interested in similar programs. ",
+      "Ayurveda's natural approach promotes environmental consciousness, aligning with sustainable practices in healthcare.",
   },
 ];
 

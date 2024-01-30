@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./Footer.module.scss";
 import Image from "next/image";
+import Link from "next/link";
+import { getStates } from "@/api";
 
 const Footer = () => {
+  const [states, setStates] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  const fetchStates = async () => {
+    try {
+      const res = await getStates();
+      setStates(res?.data?.data);
+      setLoading(false);
+    } catch (err) {
+      console.log("error", err);
+    }
+  };
+
+  useEffect(() => {
+    setLoading(true);
+    fetchStates();
+  }, []);
+
   return (
     <footer className={styles.footer}>
       <div className="container-lg">
@@ -40,20 +60,35 @@ const Footer = () => {
           <div className="col-sm-4 mb-sm-0 mb-4">
             <div className="row">
               <div className={`${styles.footerLinks} col-6`}>
-                <div className={styles.footerLinksTitle}>Information</div>
-                <div className={styles.footerLink}>About us</div>
-                <div className={styles.footerLink}>Careers</div>
-                <div className={styles.footerLink}>Customer</div>
-                <div className={styles.footerLink}>Privacy</div>
-                <div className={styles.footerLink}>Service</div>
+                <div className={styles.footerLinksTitle}>Colleges</div>
+                <Link href="/" className={styles.footerLink}>
+                  Home
+                </Link>
+                <Link href="/colleges" className={styles.footerLink}>
+                  Colleges
+                </Link>
+                <Link href="/blogs" className={styles.footerLink}>
+                  Blogs
+                </Link>
+                <Link href="/about" className={styles.footerLink}>
+                  About us
+                </Link>
+                <Link href="/contact" className={styles.footerLink}>
+                  Contact us
+                </Link>
               </div>
               <div className={`${styles.footerLinks} col-6`}>
-                <div className={styles.footerLinksTitle}>Courses</div>
-                <div className={styles.footerLink}>Masters degree</div>
-                <div className={styles.footerLink}>Post graduation</div>
-                <div className={styles.footerLink}>Under graduate</div>
-                <div className={styles.footerLink}>Engineering</div>
-                <div className={styles.footerLink}>PHD Degree</div>
+                <div className={styles.footerLinksTitle}>Popular cities</div>
+                {states?.map((item, index) => (
+                  <Link
+                    key={`footer-states-${index}`}
+                    href={`/colleges?state=${item.name}`}
+                    className={styles.footerLink}
+                  >
+                    {item.name}
+                  </Link>
+                ))}
+                <Link href="" className={styles.footerLink}></Link>
               </div>
             </div>
           </div>

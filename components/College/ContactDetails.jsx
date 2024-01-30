@@ -42,7 +42,7 @@ const ContactDetails = () => {
   };
 
   return (
-    <section className="container-lg mb-5">
+    <section className="container-lg mb-5 pb-sm-5">
       <div className="row">
         <div className="col-sm-5 ps-0 mb-sm-0 mb-4">
           <div className="border rounded overflow-hidden contact-form-college h-100">

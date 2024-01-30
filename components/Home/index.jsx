@@ -12,7 +12,7 @@ const HomeComponent = ({ showcase }) => {
   return (
     <>
       <HeroSection data={showcase} />
-      <BrandsSection />
+      {/* <BrandsSection /> */}
       <AboutSection />
       <ExploreSection />
       <CollegesSection />
