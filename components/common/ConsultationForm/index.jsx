@@ -11,8 +11,11 @@ const defaultState = {
   source: "Book consultation button",
 };
 
-const ConsultationForm = ({ handleClose }) => {
-  const [formData, setFormData] = useState(defaultState);
+const ConsultationForm = ({
+  handleClose,
+  source = "Book consultation button",
+}) => {
+  const [formData, setFormData] = useState({ ...defaultState, source });
 
   const handleChange = (e) => {
     const { name, value } = e.target;

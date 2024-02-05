@@ -9,6 +9,8 @@ import { GetFirstParaFromRichText, stringToUrl } from "@/utils/helper";
 import { useRouter } from "next/router";
 import Loader from "@/components/common/Loader";
 import Pagination from "@/components/common/Pagination";
+import Modal from "react-responsive-modal";
+import ConsultationForm from "@/components/common/ConsultationForm";
 
 const CollegeList = () => {
   const router = useRouter();
@@ -26,6 +28,17 @@ const CollegeList = () => {
     city: "",
     fullName: "",
   });
+
+  const [open, setOpen] = useState(false);
+  const [activeCollege, setActiveCollege] = useState("");
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
+
+  const handleApply = (name) => {
+    setActiveCollege(name);
+    onOpenModal();
+  };
 
   useEffect(() => {
     if (router.isReady && query) {
@@ -95,204 +108,233 @@ const CollegeList = () => {
   };
 
   return (
-    <section>
-      <div className={styles.filterSection}>
-        <div className="container-lg">
-          <div className="row">
-            <div className="col-sm-9">
-              <div className={`${styles.filters} d-flex align-items-center`}>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="usr"
-                  placeholder="Search college"
-                  name="fullName"
-                  onChange={handleChange}
-                  value={filters.fullName}
-                />
-                <select
-                  className={`form-select ${styles.inputSelect}`}
-                  aria-label="Default select example"
-                  onChange={handleChange}
-                  name="state"
-                  value={filters.state}
-                >
-                  <option value="">Select state</option>
-                  {Object.keys(statesList)?.map((item, index) => (
-                    <option key={`option-${index}`} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  className={`form-select ${styles.inputSelect}`}
-                  aria-label="Default select example"
-                  onChange={handleChange}
-                  name="city"
-                  value={filters.city}
-                >
-                  <option value="">Select city</option>
-                  {statesList[filters.state]?.map((item, index) => (
-                    <option key={`option-${index}`} value={item}>
-                      {item}
-                    </option>
-                  ))}
-                </select>
-                <select
-                  className={`form-select ${styles.inputSelect}`}
-                  aria-label="Default select example"
-                  onChange={handleChange}
-                  name="collegeType"
-                  value={filters.collegeType}
-                >
-                  <option value="">Select Type</option>
-                  {collegeTypes.map((item, index) => (
-                    <option key={`option-${index}`} value={item.value}>
-                      {item.name}
-                    </option>
-                  ))}
-                </select>
+    <>
+      <section>
+        <div className={styles.filterSection}>
+          <div className="container-lg">
+            <div className="row">
+              <div className="col-sm-9">
+                <div className={`${styles.filters} d-flex align-items-center`}>
+                  <input
+                    type="text"
+                    className="form-control"
+                    id="usr"
+                    placeholder="Search college"
+                    name="fullName"
+                    onChange={handleChange}
+                    value={filters.fullName}
+                  />
+                  <select
+                    className={`form-select ${styles.inputSelect}`}
+                    aria-label="Default select example"
+                    onChange={handleChange}
+                    name="state"
+                    value={filters.state}
+                  >
+                    <option value="">Select state</option>
+                    {Object.keys(statesList)?.map((item, index) => (
+                      <option key={`option-${index}`} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    className={`form-select ${styles.inputSelect}`}
+                    aria-label="Default select example"
+                    onChange={handleChange}
+                    name="city"
+                    value={filters.city}
+                  >
+                    <option value="">Select city</option>
+                    {statesList[filters.state]?.map((item, index) => (
+                      <option key={`option-${index}`} value={item}>
+                        {item}
+                      </option>
+                    ))}
+                  </select>
+                  <select
+                    className={`form-select ${styles.inputSelect}`}
+                    aria-label="Default select example"
+                    onChange={handleChange}
+                    name="collegeType"
+                    value={filters.collegeType}
+                  >
+                    <option value="">Select Type</option>
+                    {collegeTypes.map((item, index) => (
+                      <option key={`option-${index}`} value={item.value}>
+                        {item.name}
+                      </option>
+                    ))}
+                  </select>
+                </div>
               </div>
-            </div>
-            <div className="col-sm-3 d-flex gap-3">
-              <button
-                onClick={handleResetBtnClick}
-                className={`${styles.resetButton} btn w-50 text-center`}
-                disabled={
-                  filters.city === "" ||
-                  filters.state === "" ||
-                  filters.fullName === "" ||
-                  filters.collegeType === "" ||
-                  filters.page === 1
-                }
-              >
-                Reset
-              </button>
-              <button
-                className={`${styles.applyButton} btn w-50 text-center`}
-                onClick={handleApplyFilterBtnClick}
-              >
-                Apply filter
-              </button>
+              <div className="col-sm-3 d-flex gap-3">
+                <button
+                  onClick={handleResetBtnClick}
+                  className={`${styles.resetButton} btn w-50 text-center`}
+                  disabled={
+                    filters.city === "" ||
+                    filters.state === "" ||
+                    filters.fullName === "" ||
+                    filters.collegeType === "" ||
+                    filters.page === 1
+                  }
+                >
+                  Reset
+                </button>
+                <button
+                  className={`${styles.applyButton} btn w-50 text-center`}
+                  onClick={handleApplyFilterBtnClick}
+                >
+                  Apply filter
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div className="container-lg">
-        <div
-          className={`${styles.breadcrumb} d-sm-flex align-items-center justify-content-between`}
-        >
-          <span>Home {`>`} Discover College for you</span>
-          <p className="mb-0">
-            {totalCount} Results | BAMS Colleges in{" "}
-            {filters.state === "" ? "India" : filters.state}
-          </p>
-          <span>
-            Showing Page {currentPage} of {totalPages}
-          </span>
-        </div>
-        {loading ? (
-          <Loader />
-        ) : (
-          <div className={`${styles.collegesList} row`}>
-            {colleges.length === 0 ? (
-              <p>No college found</p>
-            ) : (
-              <>
-                {colleges?.map((item, index) => (
-                  <div
-                    key={`college-card-${index}`}
-                    className="col-lg-4 col-md-6 mb-4"
-                  >
-                    <div className={styles.collegeCard}>
-                      <Image
-                        src={item?.coverpic}
-                        width="0"
-                        height="0"
-                        className={`${styles.collegeImage} w-100`}
-                        sizes="100vw"
-                        alt="brand-logo"
-                        draggable={false}
-                      />
-                      <div
-                        className={`${styles.collegeCardContent} p-4 d-flex align-items-start flex-column justify-content-between`}
-                      >
-                        <div>
-                          <div className="d-flex align-items-center justify-content-start">
-                            <span className={styles.tag}>BAMS</span>
-                            <div
-                              className={`${styles.collegeType} d-flex align-items-center justify-content-center`}
-                            >
-                              <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                height="1em"
-                                viewBox="0 0 512 512"
-                                className="me-1"
-                              >
-                                <path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
-                              </svg>
-                              {item?.collegeType} College
-                            </div>
-                            <div
-                              className={`${styles.reviews} ms-auto d-flex align-items-center flex-column justify-content-center`}
-                            >
-                              Rating
+        <div className="container-lg">
+          <div
+            className={`${styles.breadcrumb} d-sm-flex align-items-center justify-content-between`}
+          >
+            <span>Home {`>`} Discover College for you</span>
+            <p className="mb-0">
+              {totalCount} Results | BAMS Colleges in{" "}
+              {filters.state === "" ? "India" : filters.state}
+            </p>
+            <span>
+              Showing Page {currentPage} of {totalPages}
+            </span>
+          </div>
+          {loading ? (
+            <Loader />
+          ) : (
+            <div className={`${styles.collegesList} row`}>
+              {colleges.length === 0 ? (
+                <p>No college found</p>
+              ) : (
+                <>
+                  {colleges?.map((item, index) => (
+                    <div
+                      key={`college-card-${index}`}
+                      className="col-lg-4 col-md-6 mb-4"
+                    >
+                      <div className={styles.collegeCard}>
+                        <Image
+                          src={item?.coverpic}
+                          width="0"
+                          height="0"
+                          className={`${styles.collegeImage} w-100`}
+                          sizes="100vw"
+                          alt="brand-logo"
+                          draggable={false}
+                        />
+                        <div
+                          className={`${styles.collegeCardContent} p-4 d-flex align-items-start flex-column justify-content-between`}
+                        >
+                          <div>
+                            <div className="d-flex align-items-center justify-content-start">
+                              <span className={styles.tag}>BAMS</span>
                               <div
-                                className={`${styles.ratings} d-flex align-items-center justify-content-start`}
+                                className={`${styles.collegeType} d-flex align-items-center justify-content-center`}
                               >
-                                {[1, 2, 3, 4].map((index) => (
-                                  <i
-                                    className="fas fa-star"
-                                    key={`start-${index}`}
-                                  />
-                                ))}
-                                <i className="far fa-star" />
+                                <svg
+                                  xmlns="http://www.w3.org/2000/svg"
+                                  height="1em"
+                                  viewBox="0 0 512 512"
+                                  className="me-1"
+                                >
+                                  <path d="M243.4 2.6l-224 96c-14 6-21.8 21-18.7 35.8S16.8 160 32 160v8c0 13.3 10.7 24 24 24H456c13.3 0 24-10.7 24-24v-8c15.2 0 28.3-10.7 31.3-25.6s-4.8-29.9-18.7-35.8l-224-96c-8-3.4-17.2-3.4-25.2 0zM128 224H64V420.3c-.6 .3-1.2 .7-1.8 1.1l-48 32c-11.7 7.8-17 22.4-12.9 35.9S17.9 512 32 512H480c14.1 0 26.5-9.2 30.6-22.7s-1.1-28.1-12.9-35.9l-48-32c-.6-.4-1.2-.7-1.8-1.1V224H384V416H344V224H280V416H232V224H168V416H128V224zM256 64a32 32 0 1 1 0 64 32 32 0 1 1 0-64z" />
+                                </svg>
+                                {item?.collegeType} College
+                              </div>
+                              <div
+                                className={`${styles.reviews} ms-auto d-flex align-items-center flex-column justify-content-center`}
+                              >
+                                Rating
+                                <div
+                                  className={`${styles.ratings} d-flex align-items-center justify-content-start`}
+                                >
+                                  {[1, 2, 3, 4].map((index) => (
+                                    <i
+                                      className="fas fa-star"
+                                      key={`start-${index}`}
+                                    />
+                                  ))}
+                                  <i className="far fa-star" />
+                                </div>
                               </div>
                             </div>
+                            <div className={styles.title}>{item?.fullName}</div>
+                            <div className={styles.description}>
+                              <span
+                                dangerouslySetInnerHTML={{
+                                  __html: GetFirstParaFromRichText(
+                                    item?.description
+                                  )?.substring(0, 145),
+                                }}
+                              ></span>
+                              {GetFirstParaFromRichText(item?.description)
+                                .length > 145 && <>...</>}
+                            </div>
                           </div>
-                          <div className={styles.title}>{item?.fullName}</div>
-                          <div className={styles.description}>
-                            <span
-                              dangerouslySetInnerHTML={{
-                                __html: GetFirstParaFromRichText(
-                                  item?.description
-                                )?.substring(0, 145),
-                              }}
-                            ></span>
-                            {GetFirstParaFromRichText(item?.description)
-                              .length > 145 && <>...</>}
-                          </div>
-                        </div>
-                        <div
-                          className={`${styles.buttonsContainer} d-flex align-items-center justify-content-start mt-3`}
-                        >
-                          <Link
-                            href={`/colleges/${item?.slug || item?._id}`}
-                            className={`${styles.primaryButton} btn`}
+                          <div
+                            className={`${styles.buttonsContainer} d-flex align-items-center justify-content-start mt-3`}
                           >
-                            Read more
-                          </Link>
-                          <button className={`${styles.secondaryButton} btn`}>
-                            Apply now
-                          </button>
+                            <Link
+                              href={`/colleges/${item?.slug || item?._id}`}
+                              className={`${styles.primaryButton} btn`}
+                            >
+                              Read more
+                            </Link>
+                            <button
+                              onClick={() => {
+                                handleApply(item?.fullName);
+                              }}
+                              className={`${styles.secondaryButton} btn`}
+                            >
+                              Apply now
+                            </button>
+                          </div>
                         </div>
                       </div>
                     </div>
-                  </div>
-                ))}
-                <Pagination
-                  className="pagination-bar"
-                  currentPage={currentPage}
-                  totalCount={totalCount}
-                  pageSize={15}
-                  onPageChange={(page) => setCurrentPage(page)}
-                />
-              </>
-            )}
-          </div>
-        )}
-      </div>
-    </section>
+                  ))}
+                  <Pagination
+                    className="pagination-bar"
+                    currentPage={currentPage}
+                    totalCount={totalCount}
+                    pageSize={15}
+                    onPageChange={(page) => setCurrentPage(page)}
+                  />
+                </>
+              )}
+            </div>
+          )}
+        </div>
+      </section>
+
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        styles={{
+          modal: {
+            maxWidth: "1100px",
+            width: "90%",
+            padding: "unset",
+            borderRadius: "8px",
+          },
+          overlay: {
+            background: "rgba(0, 0, 0, 0.5)",
+          },
+          closeButton: {
+            background: "transparent",
+          },
+        }}
+        center
+      >
+        <ConsultationForm source={activeCollege} handleClose={onCloseModal} />
+      </Modal>
+    </>
   );
 };
 
