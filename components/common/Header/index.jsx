@@ -27,11 +27,20 @@ const Header = () => {
             >
               <div className="me-4">
                 <i className="fa fa-envelope me-2" />
-                Email us: info@collegeVeda.com
+                Email us:{" "}
+                <a href="mailto:info@collegeveda.com" className="text-white">
+                  info@collegeveda.com
+                </a>
               </div>
               <div className="ps-4">
                 <i className="fa fa-phone me-2" />
-                Hotline: 1234567890
+                Hotline:{" "}
+                <a href="tel:01204265589" className="text-white me-2">
+                  0120-4265589,
+                </a>
+                <a href="tel:7696450359" className="text-white">
+                  7696450359
+                </a>
               </div>
             </div>
           </div>

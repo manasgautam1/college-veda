@@ -8,6 +8,9 @@ import { useRouter } from "next/router";
 import { getCollegeById } from "@/api";
 import CommonTable from "../common/common-table";
 import Loader from "../common/Loader";
+import Modal from "react-responsive-modal";
+import ConsultationForm from "../common/ConsultationForm";
+import Link from "next/link";
 
 const CollegeDetailsComponent = () => {
   const router = useRouter();
@@ -15,6 +18,11 @@ const CollegeDetailsComponent = () => {
 
   const [collegeDetails, setCollegeDetails] = useState({});
   const [loading, setLoading] = useState(true);
+
+  const [open, setOpen] = useState(false);
+
+  const onOpenModal = () => setOpen(true);
+  const onCloseModal = () => setOpen(false);
 
   const fetchCollegeDetails = async (collegeId) => {
     try {
@@ -86,7 +94,21 @@ const CollegeDetailsComponent = () => {
             </div>
           </div>
           <div className="justify-content-end pb-4 d-flex container">
-            <button className="bg-black text-white p-2 rounded px-5">
+            <Link
+              href="https://drive.google.com/file/d/1cMXlEim9CXy2yjadBdqMcErBO0Evb4Na/view?usp=sharing"
+              target="_blank"
+              className={`btn btn-outline-light me-3 py-3`}
+              style={{
+                lineHeight: "100%",
+                fontWeight: 500,
+              }}
+            >
+              Download brochure
+            </Link>
+            <button
+              className="bg-black text-white p-2 rounded px-5"
+              onClick={onOpenModal}
+            >
               Apply Now
             </button>
           </div>
@@ -203,6 +225,31 @@ const CollegeDetailsComponent = () => {
           </div>
         </div>
       </div>
+
+      <Modal
+        open={open}
+        onClose={onCloseModal}
+        styles={{
+          modal: {
+            maxWidth: "1100px",
+            width: "90%",
+            padding: "unset",
+            borderRadius: "8px",
+          },
+          overlay: {
+            background: "rgba(0, 0, 0, 0.5)",
+          },
+          closeButton: {
+            background: "transparent",
+          },
+        }}
+        center
+      >
+        <ConsultationForm
+          source={collegeDetails?.fullName}
+          handleClose={onCloseModal}
+        />
+      </Modal>
     </>
   );
 };

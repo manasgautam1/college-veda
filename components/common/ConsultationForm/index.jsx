@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import styles from "./ConsultationForm.module.scss";
 import ToastMessage from "../Toasts";
 import { submitEnquiry } from "@/api";
+import Image from "next/image";
 
 const defaultState = {
   fullName: "",
@@ -48,44 +49,20 @@ const ConsultationForm = ({
     <div className={styles.connectModal}>
       <div className="row">
         <div className="col-md-6 pe-0">
-          <div className={`${styles.leftPart} p-4`}>
-            <p className="p-4">
-              Why choose to register with us?
-              <ul className="ps-3 mt-2">
-                <li>
-                  Access expert guidance to navigate through a wide array of
-                  course options and select the one that suits you best.
-                </li>
-                <li>
-                  Enhance your preparation by gaining in-depth insights into the
-                  syllabus and exam format.
-                </li>
-                <li>
-                  Discover courses offered by various colleges that fit with
-                  your unique skill set.
-                </li>
-                <li>
-                  Simplify the college admission process with our completely
-                  online admission system, eliminating the need to physically
-                  visit campuses.
-                </li>
-              </ul>
-            </p>
-            <img
-              src="/assets/img/contact-modal-left.webp"
-              width="100%"
-              alt=""
-              className={styles.leftImg}
-            />
-          </div>
+          <Image
+            src="/assets/images/common/contact-modal.webp"
+            width="0"
+            height="0"
+            className={`${styles.leftImg} w-100 h-auto`}
+            sizes="100vw"
+            alt="about img"
+            draggable={false}
+          />
         </div>
         <div className="col-md-6 h-100 ps-md-0">
-          <div className={`${styles.rightPart} p-4 my-4 mx-md-4`}>
-            <p>
-              Were you aware that CollegeVeda facilitated admissions for
-              thousands of students last year? Consult our experts and gain
-              valuable insights into BAMS courses.
-            </p>
+          <div
+            className={`${styles.rightPart} p-4 my-4 mx-md-4 d-flex align-items-center justify-content-between`}
+          >
             <form action="#" onSubmit={handleSubmit}>
               <div className="form-group mb-4">
                 <input

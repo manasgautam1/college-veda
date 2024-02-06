@@ -5,18 +5,18 @@ import Image from "next/image";
 const infoContent = [
   {
     icon: "/assets/images/home/about/about-icon-1.svg",
-    title: "350",
-    subtitle: "FINISHED WEBINARS",
+    title: "100+",
+    subtitle: "counsellors",
   },
   {
     icon: "/assets/images/home/about/about-icon-2.svg",
     title: "100%",
-    subtitle: "SATISFACTION RATE",
+    subtitle: "Satisfaction rate",
   },
   {
     icon: "/assets/images/home/about/about-icon-3.svg",
-    title: "656",
-    subtitle: "ONLINE SESSIONS",
+    title: "1000+",
+    subtitle: "happy students",
   },
 ];
 
@@ -45,13 +45,14 @@ const AboutSection = () => {
                 Unlocking Your Potential in Ayurvedic Medicine
               </div>
               <div className={styles.subtitle}>
-                We are your one-stop solution for direct admission to top
-                Bachelor of Ayurvedic Medicine and Surgery (BAMS) colleges in
-                India, expert guidance, and comprehensive career counselling. We
-                understand that choosing the right career path can be
-                challenging. That's why we offer personalized career counseling
-                services to help you discover your passions and identify the
-                right BAMS specialization for you.
+                At College Veda, we're like your guides to a career in Ayurveda,
+                an ancient and natural way of keeping people healthy. We
+                specialize in helping you get into Ayurvedic colleges, making
+                the process smooth and accessible. We believe in the power of
+                Ayurveda to bring well-being, and our mission is to support you
+                in starting a meaningful career in this ancient and trusted
+                field. Choose College Veda for a simple and supported pathway to
+                a fulfilling Ayurvedic profession.
               </div>
               <div className={`${styles.infoContainer} row`}>
                 {infoContent.map((item, index) => (

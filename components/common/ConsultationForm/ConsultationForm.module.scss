@@ -1,33 +1,17 @@
 .connectModal {
   width: 100%;
   overflow: hidden;
-  .leftPart {
-    background: #00a99d;
-    height: 100%;
-    position: relative;
-    p {
-      color: #fff;
-      font-size: 0.9rem;
-      font-weight: 600;
-      line-height: 180%;
-      ul {
-        li {
-          font-weight: 400;
-        }
-      }
-    }
+  height: 80vh;
+  .leftImg {
+    height: 80vh !important;
+    object-fit: cover;
+    object-position: center;
     @media screen and (max-width: 768px) {
       display: none;
     }
   }
-  .leftImg {
-    width: 60%;
-    position: absolute;
-    left: 50%;
-    bottom: -5%;
-    transform: translateX(-50%);
-  }
   .rightPart {
+    height: 80vh;
     .innerContainer {
       width: 85%;
       margin: auto;

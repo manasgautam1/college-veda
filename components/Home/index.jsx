@@ -7,6 +7,7 @@ import CollegesSection from "./CollegesSection";
 import TestimonialsSection from "./TestimonialsSection";
 import BlogsSection from "./BlogsSection";
 import FormSection from "./FormSection";
+import FaqSection from "../Colleges/FaqSection";
 
 const HomeComponent = ({ showcase }) => {
   return (
@@ -19,6 +20,7 @@ const HomeComponent = ({ showcase }) => {
       <TestimonialsSection />
       <FormSection />
       <BlogsSection />
+      <FaqSection />
     </>
   );
 };

@@ -55,7 +55,7 @@ const FaqSection = () => {
               </p>
 
               <div className={styles.readBtn}>
-                <Link href="/about">Read our full FAQ</Link>
+                <Link href="/about">Know more</Link>
               </div>
             </div>
           </div>

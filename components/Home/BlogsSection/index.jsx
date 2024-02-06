@@ -6,6 +6,7 @@ import { getBlogs } from "@/api";
 import Loader from "@/components/common/Loader";
 import moment from "moment";
 import Link from "next/link";
+import { GetFirstParaFromRichText } from "@/utils/helper";
 
 const slickSettings = {
   dots: true,
@@ -44,7 +45,9 @@ const slickSettings = {
 const BlogCard = ({ data }) => {
   return (
     <div className="p-sm-2 py-4 px-sm-auto px-2 h-100">
-      <div className={`${styles.blogCard}`}>
+      <div
+        className={`${styles.blogCard} d-flex align-items-start flex-column justify-content-between`}
+      >
         <div className={styles.blogImg}>
           <Image
             src={data?.blogPic}
@@ -56,7 +59,9 @@ const BlogCard = ({ data }) => {
             draggable={false}
           />
         </div>
-        <div className="p-4 d-flex align-items-start flex-column justify-content-between">
+        <div
+          className={`p-4 d-flex align-items-start flex-column justify-content-between ${styles.blogContent}`}
+        >
           <div>
             <div
               className={`${styles.topContainer} d-flex align-items-center justify-content-between`}
@@ -66,6 +71,9 @@ const BlogCard = ({ data }) => {
               </div>
             </div>
             <div className={styles.title}>{data?.title}</div>
+            <p className="mb-0 mt-2">
+              {GetFirstParaFromRichText(data?.body)?.slice(0, 100)}
+            </p>
           </div>
           <Link
             href={`blogs/${data?.slug}`}
@@ -100,7 +108,7 @@ const BlogsSection = () => {
 
   return (
     <section>
-      <div className="container-lg py-sm-5 my-5">
+      <div className="container-lg pt-sm-5 mt-5">
         <div className={styles.blogsSection}>
           <div className="section-title mb-2">Latest News & Blogs</div>
           <div className="section-subtitle">

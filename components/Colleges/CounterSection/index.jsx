@@ -11,20 +11,20 @@ const CounterSection = () => {
         className={`${styles.counters} d-flex align-items-center justify-content-center`}
       >
         <div className={styles.counter}>
-          <div className={styles.count}>1386+</div>
-          <div className={styles.subtitle}>Success Stories</div>
+          <div className={styles.count}>800+</div>
+          <div className={styles.subtitle}>Colleges</div>
         </div>
         <div className={styles.counter}>
-          <div className={styles.count}>620+</div>
-          <div className={styles.subtitle}>Success Stories</div>
+          <div className={styles.count}>100+</div>
+          <div className={styles.subtitle}>Counsellors</div>
         </div>
         <div className={styles.counter}>
-          <div className={styles.count}>530+</div>
-          <div className={styles.subtitle}>Success Stories</div>
+          <div className={styles.count}>100%</div>
+          <div className={styles.subtitle}>Satisfaction rate</div>
         </div>
         <div className={styles.counter}>
-          <div className={styles.count}>2000+</div>
-          <div className={styles.subtitle}>Success Stories</div>
+          <div className={styles.count}>1000+</div>
+          <div className={styles.subtitle}>Happy students</div>
         </div>
       </div>
     </section>

@@ -3,6 +3,7 @@ import styles from "./HeroSection.module.scss";
 import { sliderData } from "@/constants/heroSliderData";
 import CustomSlick from "@/components/common/CustomSlick";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 const HeroSectionSlide = ({ data }) => {
   const router = useRouter();
@@ -36,9 +37,13 @@ const HeroSectionSlide = ({ data }) => {
             >
               Get started <i className="fa fa-arrow-right" />
             </button>
-            <button className={`${styles.secondaryButton} btn`}>
+            <Link
+              href="https://drive.google.com/file/d/1cMXlEim9CXy2yjadBdqMcErBO0Evb4Na/view?usp=sharing"
+              target="_blank"
+              className={`${styles.secondaryButton} btn`}
+            >
               Download brochure
-            </button>
+            </Link>
           </div>
         </div>
       </div>

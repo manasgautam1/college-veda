@@ -16,6 +16,10 @@
   line-height: 162.5%;
 }
 
+a {
+  text-decoration: none;
+}
+
 @media only screen and (max-width: 576px) {
   .section-title {
     font-size: 2rem;

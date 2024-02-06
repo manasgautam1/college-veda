@@ -46,15 +46,27 @@ const Footer = () => {
             <div
               className={`${styles.socialLinks} d-flex align-items-center justify-content-start`}
             >
-              <div className={styles.iconContainer}>
+              <a
+                href="https://www.facebook.com/collegevedaofficial"
+                target="_blank"
+                className={styles.iconContainer}
+              >
                 <i className="fab fa-facebook-f" />
-              </div>
-              <div className={styles.iconContainer}>
+              </a>
+              <a
+                href="https://youtube.com/@collegeVeda-vm1xx?si=CD1sLvrRpBEZyuVa"
+                target="_blank"
+                className={styles.iconContainer}
+              >
                 <i className="fab fa-youtube" />
-              </div>
-              <div className={styles.iconContainer}>
-                <i className="fab fa-twitter" />
-              </div>
+              </a>
+              <a
+                href="https://www.instagram.com/collegevedaofficial?igsh=MTZpYW51Z2lleGtyYw=="
+                target="_blank"
+                className={styles.iconContainer}
+              >
+                <i className="fab fa-instagram" />
+              </a>
             </div>
           </div>
           <div className="col-sm-4 mb-sm-0 mb-4">

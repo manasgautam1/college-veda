@@ -1,6 +1,11 @@
 @import "@theme";
 
 .aboutSection {
+  .aboutImg {
+    aspect-ratio: 0.85;
+    object-fit: cover;
+    object-position: center;
+  }
   .aboutContent {
     padding-left: 2.5rem;
     span {

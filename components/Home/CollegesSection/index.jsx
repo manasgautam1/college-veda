@@ -10,6 +10,7 @@ import ConsultationForm from "@/components/common/ConsultationForm";
 
 const CollegesSection = () => {
   const [colleges, setColleges] = useState([]);
+  const [filteredColleges, setFilteredColleges] = useState([]);
   const [loading, setLoading] = useState(true);
   const [typeOfCollege, setTypeOfCollege] = useState("all");
   const [open, setOpen] = useState(false);
@@ -37,6 +38,16 @@ const CollegesSection = () => {
     setLoading(true);
     fetchColleges();
   }, []);
+
+  useEffect(() => {
+    if (typeOfCollege === "all") {
+      setFilteredColleges([...colleges]);
+    } else {
+      setFilteredColleges([
+        ...colleges.filter((item) => item?.collegeType === typeOfCollege),
+      ]);
+    }
+  }, [typeOfCollege, colleges]);
 
   const handleChange = (e) => {
     const value = e.target.getAttribute("data-value");
@@ -97,7 +108,7 @@ const CollegesSection = () => {
             <Loader />
           ) : (
             <div className={`${styles.collegesList} row`}>
-              {colleges?.slice(0, 9)?.map((item, index) => (
+              {filteredColleges?.slice(0, 9)?.map((item, index) => (
                 <div
                   key={`college-card-${index}`}
                   className="col-lg-4 col-md-6 mb-4"

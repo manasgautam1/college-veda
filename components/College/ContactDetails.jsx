@@ -66,11 +66,18 @@ const ContactDetails = () => {
               </h3>
               <div className="d-flex align-items-center gap-3 mt-3">
                 <BsFillTelephoneFill fontSize={20} />
-                <p className="mb-0">+91 123456789</p>
+                <a href="tel:01204265589" className="text-black">
+                  0120-4265589,
+                </a>
+                <a href="tel:7696450359" className="text-black">
+                  7696450359
+                </a>
               </div>
               <div className="d-flex align-items-center gap-3 mt-3">
                 <MdEmail fontSize={24} />
-                <p className="mb-0">info@collegeveda.com</p>
+                <a href="mailto:info@collegeveda.com" className="text-black">
+                  info@collegeveda.com
+                </a>
               </div>
             </div>
           </div>
