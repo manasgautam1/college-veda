@@ -139,7 +139,10 @@ const CollegeDetailsComponent = () => {
                 <h6 className="mb-0">Annual Fees</h6>
                 <p className="text-success mb-0">{item?.fee}</p>
               </div>
-              <button className="border border-success p-2 text-success bg-white">
+              <button
+                className="border border-success p-2 text-success bg-white"
+                onClick={onOpenModal}
+              >
                 Apply Now
               </button>
             </div>
@@ -173,7 +176,7 @@ const CollegeDetailsComponent = () => {
 
       <ContactDetails />
 
-      <div className="container-lg border rounded mb-5 p-4">
+      <div className="container-lg border rounded p-4">
         <h4 className="mb-3">Reviews and rating</h4>
         <div className="my-4 border-bottom d-flex ">
           <div className="d-flex  border-end align-items-center flex-column col-6">

@@ -142,20 +142,6 @@ const CollegeList = () => {
                     className={`form-select ${styles.inputSelect}`}
                     aria-label="Default select example"
                     onChange={handleChange}
-                    name="city"
-                    value={filters.city}
-                  >
-                    <option value="">Select city</option>
-                    {statesList[filters.state]?.map((item, index) => (
-                      <option key={`option-${index}`} value={item}>
-                        {item}
-                      </option>
-                    ))}
-                  </select>
-                  <select
-                    className={`form-select ${styles.inputSelect}`}
-                    aria-label="Default select example"
-                    onChange={handleChange}
                     name="collegeType"
                     value={filters.collegeType}
                   >

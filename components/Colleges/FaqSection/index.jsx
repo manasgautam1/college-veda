@@ -5,32 +5,38 @@ import Link from "next/link";
 const faqs = [
   {
     id: 1,
+    question: "Why choose College Veda?",
+    answer:
+      "Our team loves Ayurveda and we're here to guide you. Think of us as your Ayurvedic mentors, ready to share our passion and knowledge.",
+  },
+  {
+    id: 2,
     question: "Why choose Ayurveda colleges?",
     answer:
       "Ayurveda colleges offer a holistic approach to healthcare, focusing on natural healing and personalized treatments.",
   },
   {
-    id: 2,
+    id: 3,
     question:
       "What are the benefits of studying Ayurveda in a dedicated college?",
     answer:
       "Ayurveda colleges provide specialized education, hands-on experience, and a deep connection with traditional practices.",
   },
   {
-    id: 3,
+    id: 4,
     question:
       "How does Ayurveda education promote a patient-centered approach?",
     answer:
       "Ayurveda emphasizes personalized healthcare, considering individual constitutions and imbalances for tailored treatments.",
   },
   {
-    id: 4,
+    id: 5,
     question: "Are Ayurveda colleges globally recognized?",
     answer:
       "Many Ayurveda colleges adhere to international standards and hold accreditation, providing opportunities for global practice and research.",
   },
   {
-    id: 5,
+    id: 6,
     question: "How does Ayurveda contribute to sustainable healthcare?",
     answer:
       "Ayurveda's natural approach promotes environmental consciousness, aligning with sustainable practices in healthcare.",
