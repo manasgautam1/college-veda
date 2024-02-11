@@ -95,7 +95,12 @@ const Header = () => {
             </button>
           </div>
         </nav>
-        {showSidebar && <Sidebar toggleSidebar={toggleSidebar} />}
+        {showSidebar && (
+          <Sidebar
+            onOpenModalClick={onOpenModal}
+            toggleSidebar={toggleSidebar}
+          />
+        )}
       </div>
       <Modal
         open={open}

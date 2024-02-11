@@ -3,7 +3,7 @@ import styles from "./Sidebar.module.scss";
 import { NAVLINKS } from "@/constants/navlinksData";
 import Link from "next/link";
 
-const Sidebar = ({ toggleSidebar }) => {
+const Sidebar = ({ toggleSidebar, onOpenModalClick }) => {
   return (
     <div className={`${styles.sidebarContainer} p-4 d-sm-none`}>
       <button
@@ -20,6 +20,10 @@ const Sidebar = ({ toggleSidebar }) => {
         ))}
       </div>
       <button
+        onClick={() => {
+          onOpenModalClick();
+          toggleSidebar();
+        }}
         className={`${styles.consultationButton} btn btn-primary d-flex align-items-center justify-content-center mt-5`}
       >
         <span>Get consultation</span>
