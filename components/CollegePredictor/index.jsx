@@ -77,7 +77,7 @@ const CollegePredictorComponent = () => {
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Full name"
+                  placeholder="xyz@gmail.com"
                   className="form-control"
                 />
               </div>
