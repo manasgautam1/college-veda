@@ -69,7 +69,7 @@ const CollegePredictorComponent = () => {
                   className="form-control"
                 />
               </div>
-              <div className="form-group mb-3">
+              {/* <div className="form-group mb-3">
                 <label htmlFor="email" className="mb-2">
                   <strong>Email</strong>
                 </label>
@@ -80,7 +80,7 @@ const CollegePredictorComponent = () => {
                   placeholder="xyz@gmail.com"
                   className="form-control"
                 />
-              </div>
+              </div> */}
               <div className="form-group mb-3">
                 <label htmlFor="gender" className="mb-2">
                   <strong>Gender</strong>
@@ -98,7 +98,7 @@ const CollegePredictorComponent = () => {
               </div>
               <div className="form-group mb-3">
                 <label htmlFor="category" className="mb-2">
-                  <strong>Gender</strong>
+                  <strong>Category</strong>
                 </label>
                 <select
                   class="form-select"
