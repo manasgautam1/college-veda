@@ -10,6 +10,7 @@ import ConsultationForm from "../ConsultationForm";
 const Header = () => {
   const [showSidebar, setShowSidebar] = useState(false);
   const [open, setOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState(-1);
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
@@ -17,6 +18,15 @@ const Header = () => {
   const toggleSidebar = () => {
     setShowSidebar(!showSidebar);
   };
+
+  const handleDropdownClick = (index) => {
+    if (index === activeDropdown) {
+      setActiveDropdown(-1);
+    } else {
+      setActiveDropdown(index);
+    }
+  };
+
   return (
     <>
       <div className={styles.headerContainer}>
@@ -73,17 +83,47 @@ const Header = () => {
               <span className="navbar-toggler-icon"></span>
             </button>
             <div className="collapse navbar-collapse" id="navbarNav">
-              <ul className="navbar-nav">
-                {NAVLINKS?.map((item, index) => (
-                  <li
-                    key={`nav-link-${index}`}
-                    className={`${styles.navItem} nav-item px-2`}
-                  >
-                    <Link className="nav-link" href={item.url}>
-                      {item.name}
-                    </Link>
-                  </li>
-                ))}
+              <ul className="navbar-nav d-flex align-items-center">
+                {NAVLINKS?.map((item, index) => {
+                  if (item?.subLinks && item.subLinks.length > 0) {
+                    return (
+                      <div className="dropdown" key={`nav-link-${index}`}>
+                        <button
+                          onClick={() => handleDropdownClick(index)}
+                          className="dropbtn"
+                        >
+                          {item?.name} <i className="fa fa-chevron-down" />
+                        </button>
+                        <div
+                          id="myDropdown"
+                          className={`dropdown-content ${
+                            activeDropdown === index ? "show" : ""
+                          }`}
+                        >
+                          {item?.subLinks?.map((item, index) => (
+                            <Link
+                              className="nav-link"
+                              href={item.url}
+                              key={`dropdown-item-${index}`}
+                            >
+                              {item.name}
+                            </Link>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  }
+                  return (
+                    <li
+                      key={`nav-link-${index}`}
+                      className={`${styles.navItem} nav-item px-2`}
+                    >
+                      <Link className="nav-link" href={item.url}>
+                        {item.name}
+                      </Link>
+                    </li>
+                  );
+                })}
               </ul>
             </div>
             <button

@@ -1,23 +1,33 @@
 export const NAVLINKS = [
   {
     id: 1,
-    name: "Home",
-    url: "/",
-  },
-  {
-    id: 2,
     name: "Explore colleges",
     url: "/colleges",
   },
   {
+    id: 2,
+    name: "Counselling process",
+    url: "",
+    subLinks: [
+      {
+        name: "All India Counselling",
+        url: "/all-india-counselling",
+      },
+      {
+        name: "State Counselling",
+        url: "/state-counselling",
+      },
+    ],
+  },
+  {
     id: 3,
-    name: "Government colleges",
-    url: "/colleges?collegeType=Government",
+    name: "All India cut-off",
+    url: "/all-india-cut-off",
   },
   {
     id: 4,
-    name: "Private colleges",
-    url: "/colleges?collegeType=Private",
+    name: "College predictor",
+    url: "/college-predictor",
   },
   {
     id: 5,
