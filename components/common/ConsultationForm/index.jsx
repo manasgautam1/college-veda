@@ -5,12 +5,18 @@ import { submitEnquiry } from "@/api";
 import Image from "next/image";
 
 const defaultState = {
+  joinAs: "Student",
   fullName: "",
   phone: "",
   email: "",
   message: "",
   source: "Book consultation button",
+  firmName: "",
+  institutionName: "",
+  designation: "",
 };
+
+const joinAsOptions = ["Consultant", "Institution", "Student"];
 
 const ConsultationForm = ({
   handleClose,
@@ -65,60 +71,192 @@ const ConsultationForm = ({
           >
             <form action="#" onSubmit={handleSubmit}>
               <div className="form-group mb-4">
-                <input
-                  type="name"
-                  className={`form-control ${styles.formControl}`}
-                  id="name"
-                  placeholder="Name"
-                  required
-                  name="fullName"
-                  onChange={handleChange}
-                  value={formData.fullName}
-                />
-              </div>
-              <div className="input-group mb-4">
-                <div className="pe-3">
-                  <div className="input-group-prepend">
-                    <div className={`input-group-text ${styles.formControl}`}>
-                      +91
+                <label htmlFor="" className="mb-2">
+                  <strong>Join as</strong>
+                </label>
+                <div className="d-flex align-items-center justify-content-between">
+                  {joinAsOptions.map((item, index) => (
+                    <div key={`join-as-option-${index}`} class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        name="joinAs"
+                        id={`radio-button-${index}`}
+                        value={item}
+                        onChange={handleChange}
+                      />
+                      <label
+                        class="form-check-label"
+                        for={`radio-button-${index}`}
+                      >
+                        {item}
+                      </label>
                     </div>
-                  </div>
+                  ))}
                 </div>
-                <input
-                  type="tel"
-                  className={`form-control ${styles.formControl}`}
-                  id="mobile"
-                  placeholder="Mobile"
-                  required
-                  name="phone"
-                  onChange={handleChange}
-                  value={formData.phone}
-                />
               </div>
-              <div className="form-group mb-4">
-                <input
-                  type="email"
-                  className={`form-control ${styles.formControl}`}
-                  id="email"
-                  placeholder="Email"
-                  required
-                  name="email"
-                  onChange={handleChange}
-                  value={formData.email}
-                />
-              </div>
-              <div className="form-group mb-4">
-                <textarea
-                  className={`form-control ${styles.formControl}`}
-                  id="interest"
-                  placeholder="Interested in?"
-                  rows={3}
-                  required
-                  name="message"
-                  onChange={handleChange}
-                  value={formData.message}
-                />
-              </div>
+              {formData?.joinAs === "Student" && (
+                <>
+                  <div className="form-group mb-4">
+                    <input
+                      type="name"
+                      className={`form-control ${styles.formControl}`}
+                      id="name"
+                      placeholder="Name"
+                      required
+                      name="fullName"
+                      onChange={handleChange}
+                      value={formData.fullName}
+                    />
+                  </div>
+                  <div className="input-group mb-4">
+                    <div className="pe-3">
+                      <div className="input-group-prepend">
+                        <div
+                          className={`input-group-text ${styles.formControl}`}
+                        >
+                          +91
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      type="tel"
+                      className={`form-control ${styles.formControl}`}
+                      id="mobile"
+                      placeholder="Mobile"
+                      required
+                      name="phone"
+                      onChange={handleChange}
+                      value={formData.phone}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <input
+                      type="email"
+                      className={`form-control ${styles.formControl}`}
+                      id="email"
+                      placeholder="Email"
+                      required
+                      name="email"
+                      onChange={handleChange}
+                      value={formData.email}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <textarea
+                      className={`form-control ${styles.formControl}`}
+                      id="interest"
+                      placeholder="Interested in?"
+                      rows={3}
+                      required
+                      name="message"
+                      onChange={handleChange}
+                      value={formData.message}
+                    />
+                  </div>
+                </>
+              )}
+              {formData.joinAs === "Institution" && (
+                <>
+                  <div className="form-group mb-4">
+                    <input
+                      type="name"
+                      className={`form-control ${styles.formControl}`}
+                      id="name"
+                      placeholder="Name"
+                      required
+                      name="fullName"
+                      onChange={handleChange}
+                      value={formData.fullName}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <input
+                      type="institutionName"
+                      className={`form-control ${styles.formControl}`}
+                      id="institutionName"
+                      placeholder="Institution name"
+                      required
+                      name="institutionName"
+                      onChange={handleChange}
+                      value={formData.institutionName}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <input
+                      type="designation"
+                      className={`form-control ${styles.formControl}`}
+                      id="designation"
+                      placeholder="Designation"
+                      required
+                      name="designation"
+                      onChange={handleChange}
+                      value={formData.designation}
+                    />
+                  </div>
+                </>
+              )}
+              {formData.joinAs === "Consultant" && (
+                <>
+                  <div className="form-group mb-4">
+                    <input
+                      type="name"
+                      className={`form-control ${styles.formControl}`}
+                      id="name"
+                      placeholder="Name"
+                      required
+                      name="fullName"
+                      onChange={handleChange}
+                      value={formData.fullName}
+                    />
+                  </div>
+                  <div className="input-group mb-4">
+                    <div className="pe-3">
+                      <div className="input-group-prepend">
+                        <div
+                          className={`input-group-text ${styles.formControl}`}
+                        >
+                          +91
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      type="tel"
+                      className={`form-control ${styles.formControl}`}
+                      id="mobile"
+                      placeholder="Mobile"
+                      required
+                      name="phone"
+                      onChange={handleChange}
+                      value={formData.phone}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <input
+                      type="firmName"
+                      className={`form-control ${styles.formControl}`}
+                      id="firmName"
+                      placeholder="Firm name"
+                      required
+                      name="firmName"
+                      onChange={handleChange}
+                      value={formData.firmName}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <textarea
+                      className={`form-control ${styles.formControl}`}
+                      id="interest"
+                      placeholder="Why?"
+                      rows={3}
+                      required
+                      name="message"
+                      onChange={handleChange}
+                      value={formData.message}
+                    />
+                  </div>
+                </>
+              )}
               <div className={`${styles.whatsappText} text-center mb-4`}>
                 Receive updates and essential information via
                 <span> WhatsApp</span>.

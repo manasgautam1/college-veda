@@ -26,7 +26,7 @@ const Sidebar = ({ toggleSidebar, onOpenModalClick }) => {
         }}
         className={`${styles.consultationButton} btn btn-primary d-flex align-items-center justify-content-center mt-5`}
       >
-        <span>Get consultation</span>
+        <span>Collaboration</span>
         <i className="fa fa-arrow-right d-block me-2" />
       </button>
     </div>

@@ -130,7 +130,7 @@ const Header = () => {
               onClick={() => onOpenModal()}
               className={`${styles.consultationButton} btn btn-primary d-sm-flex align-items-center justify-content-center d-none`}
             >
-              <span>Get consultation</span>
+              <span>Collaboration</span>
               <i className="fa fa-arrow-right d-block me-2" />
             </button>
           </div>

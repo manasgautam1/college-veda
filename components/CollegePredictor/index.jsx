@@ -69,18 +69,6 @@ const CollegePredictorComponent = () => {
                   className="form-control"
                 />
               </div>
-              {/* <div className="form-group mb-3">
-                <label htmlFor="email" className="mb-2">
-                  <strong>Email</strong>
-                </label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="xyz@gmail.com"
-                  className="form-control"
-                />
-              </div> */}
               <div className="form-group mb-3">
                 <label htmlFor="gender" className="mb-2">
                   <strong>Gender</strong>

@@ -12,6 +12,7 @@
   }
   .rightPart {
     height: 80vh;
+    overflow-y: auto;
     .innerContainer {
       width: 85%;
       margin: auto;
