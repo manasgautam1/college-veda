@@ -257,10 +257,6 @@ const ConsultationForm = ({
                   </div>
                 </>
               )}
-              <div className={`${styles.whatsappText} text-center mb-4`}>
-                Receive updates and essential information via
-                <span> WhatsApp</span>.
-              </div>
               <div className="form-group mb-4">
                 <button className={`${styles.submitButton} btn btn-block`}>
                   Register Now
