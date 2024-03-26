@@ -26,3 +26,6 @@ export const getTestimonials = () => API.get("/testimonials");
 
 //Enquiry
 export const submitEnquiry = (payload) => API.post("/contact", payload);
+
+//RankPredictor
+export const rankPredictor = (payload) => API.post("/rank-predictor", payload);

@@ -1,39 +1,75 @@
-import React from "react";
+import React, { useState } from "react";
 import BreadcrumbSection from "../About/BreadcrumbSection";
 import styles from "./CollegePredictor.module.scss";
 import CommonTable from "../common/common-table";
 import Image from "next/image";
+import { rankPredictor } from "@/api";
+
+const tableData = {
+  columns: [
+    {
+      name: "Marks",
+    },
+    {
+      name: "Rank",
+    },
+  ],
+  rows: [
+    ["720", "1"],
+    ["716", "3"],
+    ["715", "4-19"],
+    ["712", "20"],
+    ["711", "21-26"],
+    ["710", "27-50"],
+    ["707-699", "32 -129"],
+    ["698 - 688", "130-380"],
+    ["687-679", "381 - 842"],
+    ["678 - 668", "850 - 1698"],
+    ["667-658", "1700 - 2945"],
+    ["657-649", "3065 - 4869"],
+    ["648-638", "5073 - 7357"],
+    ["637-629", "7643 - 10545"],
+    ["628-618", "10877 - 14353"],
+    ["617- 609", "14766 - 18807"],
+    ["600 -598", "19277 - 24533"],
+  ],
+};
 
 const CollegePredictorComponent = () => {
-  const tableData = {
-    columns: [
-      {
-        name: "Marks",
-      },
-      {
-        name: "Rank",
-      },
-    ],
-    rows: [
-      ["720", "1"],
-      ["716", "3"],
-      ["715", "4-19"],
-      ["712", "20"],
-      ["711", "21-26"],
-      ["710", "27-50"],
-      ["707-699", "32 -129"],
-      ["698 - 688", "130-380"],
-      ["687-679", "381 - 842"],
-      ["678 - 668", "850 - 1698"],
-      ["667-658", "1700 - 2945"],
-      ["657-649", "3065 - 4869"],
-      ["648-638", "5073 - 7357"],
-      ["637-629", "7643 - 10545"],
-      ["628-618", "10877 - 14353"],
-      ["617- 609", "14766 - 18807"],
-      ["600 -598", "19277 - 24533"],
-    ],
+  const [formData, setFormData] = useState({
+    name: "",
+    phone: "",
+    gender: "",
+    category: "",
+    score: "",
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
   };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await rankPredictor(formData);
+      ToastMessage({
+        type: "success",
+        message:
+          "Form submitted succesfully!, our team will connect with you shortly.",
+      });
+      setFormData({ ...defaultState });
+    } catch (err) {
+      ToastMessage({
+        type: "error",
+        message: "Oops something went wrong!",
+      });
+      setFormData({ ...defaultState });
+      console.log("error", err);
+    }
+  };
+
   return (
     <div className={styles.collegePredictorSection}>
       <BreadcrumbSection
@@ -44,7 +80,7 @@ const CollegePredictorComponent = () => {
       <div className="container-lg py-5">
         <div className="row mb-5">
           <div className="col-md-7">
-            <form action="" className="card py-3 px-4">
+            <form onSubmit={handleSubmit} className="card py-3 px-4">
               <div className="form-group mb-3">
                 <label htmlFor="name" className="mb-2">
                   <strong>Name</strong>
@@ -55,6 +91,9 @@ const CollegePredictorComponent = () => {
                   id="name"
                   placeholder="Full name"
                   className="form-control"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group mb-3">
@@ -67,6 +106,9 @@ const CollegePredictorComponent = () => {
                   id="phone"
                   placeholder="9999999999"
                   className="form-control"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group mb-3">
@@ -77,6 +119,9 @@ const CollegePredictorComponent = () => {
                   class="form-select"
                   aria-label="Default select example"
                   id="gender"
+                  value={formData.gender}
+                  onChange={handleChange}
+                  required
                 >
                   <option selected>Choose your gender</option>
                   <option value="male">Male</option>
@@ -92,6 +137,9 @@ const CollegePredictorComponent = () => {
                   class="form-select"
                   aria-label="Default select example"
                   id="category"
+                  value={formData.category}
+                  onChange={handleChange}
+                  required
                 >
                   <option selected>Choose your category</option>
                   <option value="General">General</option>
@@ -107,11 +155,16 @@ const CollegePredictorComponent = () => {
                   <strong>NEET UG Score</strong>
                 </label>
                 <input
-                  type="text"
+                  type="number"
                   name="score"
                   id="score"
                   placeholder="1-800"
+                  min={1}
+                  max={800}
                   className="form-control"
+                  value={formData.score}
+                  onChange={handleChange}
+                  required
                 />
               </div>
               <div className="form-group text-center">
