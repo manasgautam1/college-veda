@@ -27,7 +27,10 @@ const BlogsSidebarSection = ({ blogs }) => {
                 <div className={`${styles.date} mb-0`}>
                   {moment(item?.createdAt).format("DD MMMM YYYY")}
                 </div>
-                <Link href="/" className={`${styles.blogTitle}`}>
+                <Link
+                  href={`/blogs/${item?.slug}`}
+                  className={`${styles.blogTitle}`}
+                >
                   {item?.title}
                 </Link>
               </div>

@@ -60,9 +60,12 @@ const BlogDetailsComponent = () => {
             </div>
           </div>
           <div className={`${styles.blogTitle} mb-3`}>{blogDetails?.title}</div>
-          <div className={`${styles.blogData} mb-3`}>
-            {GetFirstParaFromRichText(blogDetails?.body)}
-          </div>
+          <div
+            className={`${styles.blogData} mb-3`}
+            dangerouslySetInnerHTML={{
+              __html: blogDetails?.body,
+            }}
+          ></div>
         </div>
       </div>
     </div>

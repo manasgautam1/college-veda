@@ -45,11 +45,11 @@ const Header = () => {
               <div className="ps-4">
                 <i className="fa fa-phone me-2" />
                 Hotline:{" "}
-                <a href="tel:01204265589" className="text-white me-2">
-                  0120-4265589,
+                <a href="tel:9355001127" className="text-white me-2">
+                  9355001127,
                 </a>
-                <a href="tel:7696450359" className="text-white">
-                  7696450359
+                <a href="tel:9355001128" className="text-white">
+                  9355001128
                 </a>
               </div>
             </div>

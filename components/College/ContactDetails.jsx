@@ -66,11 +66,11 @@ const ContactDetails = () => {
               </h3>
               <div className="d-flex align-items-center gap-3 mt-3">
                 <BsFillTelephoneFill fontSize={20} />
-                <a href="tel:01204265589" className="text-black">
-                  0120-4265589,
+                <a href="tel:9355001127" className="text-black">
+                  9355001127,
                 </a>
-                <a href="tel:7696450359" className="text-black">
-                  7696450359
+                <a href="tel:9355001128" className="text-black">
+                  9355001128
                 </a>
               </div>
               <div className="d-flex align-items-center gap-3 mt-3">

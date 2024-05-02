@@ -133,7 +133,7 @@ const Footer = () => {
           </div>
         </div>
         <p className={`${styles.copyrightText} text-center mb-0`}>
-          &copy; 2023 CollegeVeda, All Rights Reserved.
+          &copy; {new Date()?.getFullYear()} CollegeVeda, All Rights Reserved.
         </p>
       </div>
     </footer>

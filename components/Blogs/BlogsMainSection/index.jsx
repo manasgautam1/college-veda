@@ -45,11 +45,14 @@ const BlogsMainSection = ({ blogs }) => {
               </div>
             </div>
             <div className={`${styles.blogTitle} mb-3`}>{item?.title}</div>
-            <div className={`${styles.blogData} mb-3`}>
-              {GetFirstParaFromRichText(item?.body)}
-            </div>
+            <div
+              className={`${styles.blogData} mb-3`}
+              dangerouslySetInnerHTML={{
+                __html: GetFirstParaFromRichText(item?.body),
+              }}
+            ></div>
             <Link
-              href="/"
+              href={`/blogs/${item?.slug}`}
               className={`${styles.readMoreButton} btn btn-primary`}
             >
               Read more
