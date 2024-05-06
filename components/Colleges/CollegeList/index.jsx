@@ -12,6 +12,16 @@ import Pagination from "@/components/common/Pagination";
 import Modal from "react-responsive-modal";
 import ConsultationForm from "@/components/common/ConsultationForm";
 
+function removeEmptyValues(obj) {
+  const newObj = {};
+  for (const key in obj) {
+    if (obj.hasOwnProperty(key) && obj[key] !== "") {
+      newObj[key] = obj[key];
+    }
+  }
+  return newObj;
+}
+
 const CollegeList = () => {
   const router = useRouter();
   const { query } = router;
@@ -43,29 +53,38 @@ const CollegeList = () => {
   useEffect(() => {
     if (router.isReady && query) {
       const { course, state, collegeType } = query;
-      setFilters({
-        ...filters,
+      setFilters((prev) => ({
+        ...prev,
         course: course || "",
         state: state || "",
         collegeType: collegeType || "",
         page: currentPage || 1,
-      });
-      setLoading(true);
-      fetchColleges({
-        ...filters,
-        course: course || "",
-        state: state || "",
-        collegeType: collegeType || "",
-        page: currentPage || 1,
-      });
+      }));
     }
-  }, [query, currentPage]);
+  }, []);
+
+  useEffect(() => {
+    setFilters((prev) => ({
+      ...prev,
+      page: currentPage,
+    }));
+  }, [currentPage]);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(true);
+      fetchColleges(filters);
+    }, [1000]);
+    return () => {
+      clearTimeout(timeout);
+    };
+  }, [filters]);
 
   const fetchColleges = async (filters) => {
     try {
       const res = await getCollegesWithFilters(filters);
       setColleges([...res?.data?.data]);
-      setCurrentPage(res?.data?.currentPage);
+      setCurrentPage(1);
       setTotalPages(res?.data?.totalPages);
       setTotalCount(res?.data?.totalCount);
       setLoading(false);
@@ -74,14 +93,14 @@ const CollegeList = () => {
     }
   };
 
-  // useEffect(() => {
-  //   setLoading(true);
-  //   fetchColleges(filters);
-  // }, []);
-
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFilters({ ...filters, [name]: value });
+    let currQuery = {};
+    currQuery = { ...filters, [name]: value };
+    currQuery = removeEmptyValues(currQuery);
+    router.query = { ...currQuery };
+    router.replace(router);
+    setFilters((prev) => ({ ...prev, [name]: value }));
   };
 
   const handleApplyFilterBtnClick = () => {
