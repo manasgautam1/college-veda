@@ -116,6 +116,17 @@ const CollegeList = () => {
       city: "",
       fullName: "",
     });
+    let currQuery = {
+      page: 1,
+      collegeType: "",
+      state: "",
+      city: "",
+      fullName: "",
+    };
+    currQuery = removeEmptyValues(currQuery);
+    router.query = { ...currQuery };
+    router.replace(router);
+
     setLoading(true);
     fetchColleges({
       page: 1,
