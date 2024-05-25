@@ -35,8 +35,8 @@ const AllIndiaCutoffComponent = () => {
       <div className="container-lg py-5">
         <div className={styles.content}>
           <div className="mb-4">
-            <div className={styles.title}>NTA NEET Cut Off 2023 Out</div>
-            <div>
+            <h1 className={styles.title}>NTA NEET Cut Off 2023 Out</h1>
+            <p>
               <strong>
                 NEET Cut Off 2023 has been released by the National Testing
                 Agency on its official website www.neet.nta.nic.in along with
@@ -50,11 +50,11 @@ const AllIndiaCutoffComponent = () => {
               Testing Agency (NTA), which conducts the NEET exam. The cut-off
               varies from year to year and from college to college. To prepare
               for the NEET 2024, Students need to check the last year cut off.
-            </div>
+            </p>
           </div>
           <div className="mb-4">
-            <div className={styles.title}>NEET UG Cut Off 2023</div>
-            <div>
+            <h2 className={styles.title}>NEET UG Cut Off 2023</h2>
+            <p>
               The Category-wise cut off marks range and percentile score for the
               NTA NEET UG exam 2023 have been released by the National Testing
               Agency (NTA). The range of qualifying marks this year increased as
@@ -67,7 +67,7 @@ const AllIndiaCutoffComponent = () => {
               percentile. The NEET cut off for other categories has also been
               increased this year. Let's have a look at the category-wise NEET
               UG cut off 2023.
-            </div>
+            </p>
           </div>
           <CommonTable tableData={tableData} />
         </div>

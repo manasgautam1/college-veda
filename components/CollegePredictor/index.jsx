@@ -4,6 +4,7 @@ import styles from "./CollegePredictor.module.scss";
 import CommonTable from "../common/common-table";
 import Image from "next/image";
 import { rankPredictor } from "@/api";
+import ToastMessage from "../common/Toasts";
 
 const tableData = {
   columns: [
@@ -34,15 +35,16 @@ const tableData = {
     ["600 -598", "19277 - 24533"],
   ],
 };
+const defaultState = {
+  name: "",
+  phone: "",
+  gender: "",
+  category: "",
+  score: "",
+};
 
 const CollegePredictorComponent = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    phone: "",
-    gender: "",
-    category: "",
-    score: "",
-  });
+  const [formData, setFormData] = useState(defaultState);
 
   const handleChange = (e) => {
     const { name, value } = e.target;

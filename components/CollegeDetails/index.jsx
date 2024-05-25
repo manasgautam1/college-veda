@@ -95,7 +95,7 @@ const CollegeDetailsComponent = () => {
           </div>
           <div className="justify-content-end pb-4 d-flex container">
             <Link
-              href="https://drive.google.com/file/d/1cMXlEim9CXy2yjadBdqMcErBO0Evb4Na/view?usp=sharing"
+              href="https://drive.google.com/file/d/1F5ifIrmdH3DVlzzgDezaNuEI8X95qkE-/view"
               target="_blank"
               className={`btn btn-outline-light me-3 py-3`}
               style={{
