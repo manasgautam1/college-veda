@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Sidebar.module.scss";
-import { NAVLINKS } from "@/constants/navlinksData";
+import { NAVLINKS, NAVLINKS_MOBILE } from "@/constants/navlinksData";
 import Link from "next/link";
 
 const Sidebar = ({ toggleSidebar, onOpenModalClick }) => {
@@ -13,7 +13,7 @@ const Sidebar = ({ toggleSidebar, onOpenModalClick }) => {
         <i className="fa fa-times"></i>
       </button>
       <div className={`${styles.listContainer}`}>
-        {NAVLINKS.map((item) => (
+        {NAVLINKS_MOBILE.map((item) => (
           <div className={`${styles.listItem} `}>
             <Link href={item?.url}>{item?.name}</Link>
           </div>

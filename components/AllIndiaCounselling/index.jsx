@@ -2,6 +2,7 @@ import React from "react";
 import BreadcrumbSection from "../About/BreadcrumbSection";
 import styles from "./AllIndiaCounselling.module.scss";
 import Image from "next/image";
+import Link from "next/link";
 
 const AllIndiaCounsellingComponent = () => {
   return (
@@ -12,7 +13,7 @@ const AllIndiaCounsellingComponent = () => {
           <div className="mb-4">
             <h1 className={styles.title}>
               Online Counseling for Allotment of All India Quota(AIQ)-Under
-              Graduate (BAMS )Seats
+              Graduate (BAMS) Seats
             </h1>
             <p>
               All the eligible candidates who qualified in NEET(UG)-2024
@@ -27,11 +28,13 @@ const AllIndiaCounsellingComponent = () => {
             <ol type="1">
               <li>
                 For participation in AACCC-UG Counseling, the candidates are
-                required to register themselves at the official website of AACCC
-                (www.aaccc.gov.in). 2. Kindly note that Non-Refundable
-                registration fees and Refundable Security deposits have to be
-                paid by the candidates at the time of registration as per their
-                category.
+                required to register themselves at the official website of AACCC{" "}
+                <Link href="https://aaccc.gov.in/" target="_blank">
+                  (www.aaccc.gov.in)
+                </Link>
+                . 2. Kindly note that Non-Refundable registration fees and
+                Refundable Security deposits have to be paid by the candidates
+                at the time of registration as per their category.
               </li>
               <li>
                 Kindly note that Non-Refundable registration fees and Refundable
