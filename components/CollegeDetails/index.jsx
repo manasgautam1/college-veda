@@ -249,6 +249,7 @@ const CollegeDetailsComponent = () => {
         center
       >
         <ConsultationForm
+          showOptions={false}
           source={collegeDetails?.fullName}
           handleClose={onCloseModal}
         />

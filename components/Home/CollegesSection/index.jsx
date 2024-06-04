@@ -227,7 +227,11 @@ const CollegesSection = () => {
         }}
         center
       >
-        <ConsultationForm source={activeCollege} handleClose={onCloseModal} />
+        <ConsultationForm
+          source={activeCollege}
+          handleClose={onCloseModal}
+          showOptions={false}
+        />
       </Modal>
     </>
   );

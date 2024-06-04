@@ -21,6 +21,7 @@ const joinAsOptions = ["Consultant", "Institution", "Student"];
 const ConsultationForm = ({
   handleClose,
   source = "Book consultation button",
+  showOptions = true,
 }) => {
   const [formData, setFormData] = useState({ ...defaultState, source });
 
@@ -70,31 +71,34 @@ const ConsultationForm = ({
             className={`${styles.rightPart} p-4 my-4 mx-md-4 d-flex align-items-center justify-content-between`}
           >
             <form action="#" onSubmit={handleSubmit}>
-              <div className="form-group mb-4">
-                <label htmlFor="" className="mb-2">
-                  <strong>Join as</strong>
-                </label>
-                <div className="d-flex align-items-center justify-content-between">
-                  {joinAsOptions.map((item, index) => (
-                    <div key={`join-as-option-${index}`} class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="joinAs"
-                        id={`radio-button-${index}`}
-                        value={item}
-                        onChange={handleChange}
-                      />
-                      <label
-                        class="form-check-label"
-                        for={`radio-button-${index}`}
-                      >
-                        {item}
-                      </label>
-                    </div>
-                  ))}
+              {showOptions && (
+                <div className="form-group mb-4">
+                  <label htmlFor="" className="mb-2">
+                    <strong>Join as</strong>
+                  </label>
+                  <div className="d-flex align-items-center justify-content-between">
+                    {joinAsOptions.map((item, index) => (
+                      <div key={`join-as-option-${index}`} class="form-check">
+                        <input
+                          class="form-check-input"
+                          type="radio"
+                          name="joinAs"
+                          id={`radio-button-${index}`}
+                          value={item}
+                          onChange={handleChange}
+                          checked={item === formData?.joinAs}
+                        />
+                        <label
+                          class="form-check-label"
+                          for={`radio-button-${index}`}
+                        >
+                          {item}
+                        </label>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              )}
               {formData?.joinAs === "Student" && (
                 <>
                   <div className="form-group mb-4">

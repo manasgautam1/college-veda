@@ -76,7 +76,7 @@ const CollegePredictorComponent = () => {
     <div className={styles.collegePredictorSection}>
       <BreadcrumbSection
         title="NEET College Predictor 2024"
-        subtitle="Forecast early to know which college to secure your MBBS seat."
+        subtitle="Forecast early to know which college to secure your BAMS seat."
       />
 
       <div className="container-lg py-5">
@@ -190,13 +190,13 @@ const CollegePredictorComponent = () => {
           <div className="mb-4">
             <p>
               The NEET College Predictor 2024 is an useful tool designed to help
-              MBBS aspirants predict their chances of admission into top private
+              BAMS aspirants predict their chances of admission into top private
               and private-public medical colleges in India based on their NEET
               scores.
             </p>
             <p>
               This predictor analyzes previous years’ NEET cutoff data for 548
-              MBBS colleges to provide candidates with suitable college options.
+              BAMS colleges to provide candidates with suitable college options.
               It uses opening and closing ranks from NEET counseling conducted
               by MCC for 15% AIQ seats and respective state authorities for 85%
               state quota seats.{" "}
@@ -212,7 +212,7 @@ const CollegePredictorComponent = () => {
               After the NEET 2024 result, candidates can use the predictor and
               enter their scores to check expected college allotment. This will
               help them plan better for counseling by analyzing chances of
-              getting into preferred private/private-public MBBS colleges based
+              getting into preferred private/private-public BAMS colleges based
               on previous years’ cutoff trends. The predictor will be updated
               with the latest NEET 2024 cutoff once released.
             </p>
@@ -223,7 +223,7 @@ const CollegePredictorComponent = () => {
             </div>
             <div>
               <p>
-                The NEET exam is the gateway to pursuing MBBS in India. Once the
+                The NEET exam is the gateway to pursuing BAMS in India. Once the
                 NEET result is announced, the next important step is predicting
                 your rank based on your marks.
               </p>
@@ -244,7 +244,7 @@ const CollegePredictorComponent = () => {
                 Use this NEET Marks vs Rank analysis as a reference to set
                 realistic college expectations. An accurate rank estimate will
                 be possible after the NEET result. Use the NEET College
-                Predictor 2024 then to get your list of top MBBS colleges in
+                Predictor 2024 then to get your list of top BAMS colleges in
                 India.
               </p>
             </div>
