@@ -64,7 +64,7 @@ const TopSection = () => {
             Veda for a simple and supported pathway to a fulfilling Ayurvedic
             profession.
           </p>
-          <p>
+          <div>
             Well, at College Veda, we're like your personal guides on this
             awesome journey. Here's why we're your go-to crew:
             <ul>
@@ -90,7 +90,7 @@ const TopSection = () => {
                 medicine.
               </li>
             </ul>
-          </p>
+          </div>
           <p>
             So, picture this: You, acing it in Ayurvedic medicine with us by
             your side. Exciting, right? Come on over to College Veda, and let's

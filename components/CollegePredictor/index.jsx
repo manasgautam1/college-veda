@@ -160,7 +160,7 @@ const CollegePredictorComponent = () => {
                   type="number"
                   name="score"
                   id="score"
-                  placeholder="1-800"
+                  placeholder="1-720"
                   min={1}
                   max={800}
                   className="form-control"
@@ -247,6 +247,29 @@ const CollegePredictorComponent = () => {
                 Predictor 2024 then to get your list of top MBBS colleges in
                 India.
               </p>
+            </div>
+          </div>
+
+          <div className="mb-4">
+            <div className={styles.title}>College veda facilities</div>
+            <div>
+              <ul>
+                <li>Seat locking facilities</li>
+                <li>Counselling support</li>
+                <li>Seat locking facilities</li>
+                <li>Provide college information</li>
+                <li>Reliable admission procedure</li>
+                <li>
+                  Follow following steps for confirming seat
+                  <ol type="a">
+                    <li>Planning</li>
+                    <li>Cut-off analysis</li>
+                    <li>Explore options</li>
+                    <li>Hire on expert</li>
+                    <li>Act and achieve</li>
+                  </ol>
+                </li>
+              </ul>
             </div>
           </div>
         </div>
