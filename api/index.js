@@ -27,5 +27,8 @@ export const getTestimonials = () => API.get("/testimonials");
 //Enquiry
 export const submitEnquiry = (payload) => API.post("/contact", payload);
 
+//Apply now form
+export const applyForm = (payload) => API.post("/apply", payload);
+
 //RankPredictor
 export const rankPredictor = (payload) => API.post("/rank-predictor", payload);

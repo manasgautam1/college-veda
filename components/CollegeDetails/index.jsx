@@ -9,8 +9,8 @@ import { getCollegeById } from "@/api";
 import CommonTable from "../common/common-table";
 import Loader from "../common/Loader";
 import Modal from "react-responsive-modal";
-import ConsultationForm from "../common/ConsultationForm";
 import Link from "next/link";
+import ApplyForm from "../common/ApplyForm";
 
 const CollegeDetailsComponent = () => {
   const router = useRouter();
@@ -248,11 +248,7 @@ const CollegeDetailsComponent = () => {
         }}
         center
       >
-        <ConsultationForm
-          showOptions={false}
-          source={collegeDetails?.fullName}
-          handleClose={onCloseModal}
-        />
+        <ApplyForm handleClose={onCloseModal} />
       </Modal>
     </>
   );

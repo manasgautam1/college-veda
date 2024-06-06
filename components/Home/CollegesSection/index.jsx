@@ -3,10 +3,10 @@ import styles from "./CollegesSection.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 import { getColleges } from "@/api";
-import { GetFirstParaFromRichText, stringToUrl } from "@/utils/helper";
+import { GetFirstParaFromRichText } from "@/utils/helper";
 import Loader from "@/components/common/Loader";
 import Modal from "react-responsive-modal";
-import ConsultationForm from "@/components/common/ConsultationForm";
+import ApplyForm from "@/components/common/ApplyForm";
 
 const CollegesSection = () => {
   const [colleges, setColleges] = useState([]);
@@ -227,11 +227,7 @@ const CollegesSection = () => {
         }}
         center
       >
-        <ConsultationForm
-          source={activeCollege}
-          handleClose={onCloseModal}
-          showOptions={false}
-        />
+        <ApplyForm handleClose={onCloseModal} />
       </Modal>
     </>
   );

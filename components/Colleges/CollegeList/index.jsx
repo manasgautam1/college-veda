@@ -5,12 +5,12 @@ import { statesList } from "@/constants/states";
 import Image from "next/image";
 import Link from "next/link";
 import { getCollegesWithFilters } from "@/api";
-import { GetFirstParaFromRichText, stringToUrl } from "@/utils/helper";
+import { GetFirstParaFromRichText } from "@/utils/helper";
 import { useRouter } from "next/router";
 import Loader from "@/components/common/Loader";
 import Pagination from "@/components/common/Pagination";
 import Modal from "react-responsive-modal";
-import ConsultationForm from "@/components/common/ConsultationForm";
+import ApplyForm from "@/components/common/ApplyForm";
 
 function removeEmptyValues(obj) {
   const newObj = {};
@@ -341,11 +341,7 @@ const CollegeList = () => {
         }}
         center
       >
-        <ConsultationForm
-          source={activeCollege}
-          handleClose={onCloseModal}
-          showOptions={false}
-        />
+        <ApplyForm handleClose={onCloseModal} />
       </Modal>
     </>
   );
