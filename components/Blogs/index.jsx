@@ -26,7 +26,11 @@ const BlogsComponent = () => {
 
   return (
     <>
-      <BreadcrumbSection title={"Blogs"} subtitle={"Home > Blogs"} />
+      <BreadcrumbSection
+        imgURL="/assets/images/breadcrumbs/blogs.webp"
+        title="Blogs"
+        subtitle="Discover expert tips and insights for your college journey.</br>Read our blog!"
+      />
       <div className="container-lg">
         <div className="row py-5 p-relative">
           {loading ? (

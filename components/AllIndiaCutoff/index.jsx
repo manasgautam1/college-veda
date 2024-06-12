@@ -28,6 +28,7 @@ const AllIndiaCutoffComponent = () => {
   return (
     <div className={styles.cutoffSection}>
       <BreadcrumbSection
+        imgURL="/assets/images/breadcrumbs/all-india-rank.webp"
         title="NEET Cut Off 2024 Out"
         subtitle="NEET Cut Off 2024 has been released by NTA category wise."
       />

@@ -1,15 +1,18 @@
 .breadcrumbSection {
   height: 25rem;
-  color: #ffffff;
+  color: #000;
   position: relative;
-  &::after {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    background: rgba(0, 3, 32, 0.53);
+  &.darkBg {
+    color: #fff;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(0, 3, 32, 0.53);
+    }
   }
   & > div {
     position: relative;
@@ -24,7 +27,7 @@
     font-size: 1rem;
     font-weight: 500;
     line-height: 162.5%;
-    text-transform: capitalize;
+    max-width: 900px;
   }
 }
 

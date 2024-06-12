@@ -75,7 +75,8 @@ const CollegePredictorComponent = () => {
   return (
     <div className={styles.collegePredictorSection}>
       <BreadcrumbSection
-        title="NEET College Predictor 2024"
+        imgURL="/assets/images/breadcrumbs/rank-predictor.webp"
+        title="BAMS College Predictor 2024"
         subtitle="Forecast early to know which college to secure your BAMS seat."
       />
 
@@ -162,7 +163,7 @@ const CollegePredictorComponent = () => {
                   id="score"
                   placeholder="1-720"
                   min={1}
-                  max={800}
+                  max={720}
                   className="form-control"
                   value={formData.score}
                   onChange={handleChange}
