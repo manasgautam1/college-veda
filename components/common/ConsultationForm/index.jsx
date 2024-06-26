@@ -14,6 +14,8 @@ const defaultState = {
   firmName: "",
   institutionName: "",
   designation: "",
+  courseDetails: "",
+  exam: "",
 };
 
 const joinAsOptions = ["Consultant", "Institution", "Student"];
@@ -140,22 +142,31 @@ const ConsultationForm = ({
                       className={`form-control ${styles.formControl}`}
                       id="email"
                       placeholder="Email"
-                      required
                       name="email"
                       onChange={handleChange}
                       value={formData.email}
                     />
                   </div>
                   <div className="form-group mb-4">
-                    <textarea
+                    <input
+                      type="text"
                       className={`form-control ${styles.formControl}`}
-                      id="interest"
-                      placeholder="Interested in?"
-                      rows={3}
-                      required
-                      name="message"
+                      id="course-details"
+                      placeholder="Course details"
+                      name="courseDetails"
                       onChange={handleChange}
-                      value={formData.message}
+                      value={formData.courseDetails}
+                    />
+                  </div>
+                  <div className="form-group mb-4">
+                    <input
+                      type="text"
+                      className={`form-control ${styles.formControl}`}
+                      id="appearing exam"
+                      placeholder="Course details"
+                      name="exam"
+                      onChange={handleChange}
+                      value={formData.exam}
                     />
                   </div>
                 </>
@@ -180,7 +191,6 @@ const ConsultationForm = ({
                       className={`form-control ${styles.formControl}`}
                       id="institutionName"
                       placeholder="Institution name"
-                      required
                       name="institutionName"
                       onChange={handleChange}
                       value={formData.institutionName}
@@ -192,10 +202,30 @@ const ConsultationForm = ({
                       className={`form-control ${styles.formControl}`}
                       id="designation"
                       placeholder="Designation"
-                      required
                       name="designation"
                       onChange={handleChange}
                       value={formData.designation}
+                    />
+                  </div>
+                  <div className="input-group mb-4">
+                    <div className="pe-3">
+                      <div className="input-group-prepend">
+                        <div
+                          className={`input-group-text ${styles.formControl}`}
+                        >
+                          +91
+                        </div>
+                      </div>
+                    </div>
+                    <input
+                      type="tel"
+                      className={`form-control ${styles.formControl}`}
+                      id="mobile"
+                      placeholder="Mobile"
+                      required
+                      name="phone"
+                      onChange={handleChange}
+                      value={formData.phone}
                     />
                   </div>
                 </>
@@ -241,7 +271,6 @@ const ConsultationForm = ({
                       className={`form-control ${styles.formControl}`}
                       id="firmName"
                       placeholder="Firm name"
-                      required
                       name="firmName"
                       onChange={handleChange}
                       value={formData.firmName}
@@ -253,7 +282,6 @@ const ConsultationForm = ({
                       id="interest"
                       placeholder="Why?"
                       rows={3}
-                      required
                       name="message"
                       onChange={handleChange}
                       value={formData.message}
