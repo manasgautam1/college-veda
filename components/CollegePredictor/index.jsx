@@ -41,6 +41,7 @@ const defaultState = {
   gender: "",
   category: "",
   score: "",
+  rank: "",
 };
 
 const CollegePredictorComponent = () => {
@@ -170,6 +171,23 @@ const CollegePredictorComponent = () => {
                   required
                 />
               </div>
+              <div className="form-group mb-3">
+                <label htmlFor="rank" className="mb-2">
+                  <strong>NEET UG Rank</strong>
+                </label>
+                <input
+                  type="number"
+                  name="rank"
+                  id="rank"
+                  placeholder="1-2300000"
+                  min={1}
+                  max={2300000}
+                  className="form-control"
+                  value={formData.rank}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
               <div className="form-group text-center">
                 <button className="btn btn-outline-success px-4">Submit</button>
               </div>
@@ -254,7 +272,7 @@ const CollegePredictorComponent = () => {
           <div className="mb-4">
             <div className={styles.title}>College veda facilities</div>
             <div>
-              <ul>
+              <ol type="1">
                 <li>Seat locking facilities</li>
                 <li>Counselling support</li>
                 <li>Seat locking facilities</li>
@@ -270,9 +288,18 @@ const CollegePredictorComponent = () => {
                     <li>Act and achieve</li>
                   </ol>
                 </li>
-              </ul>
+              </ol>
             </div>
           </div>
+          <Image
+            src="/assets/images/common/admission-process.avif"
+            width="0"
+            height="0"
+            className="w-100 h-auto"
+            sizes="100vw"
+            alt="all india counselling chart"
+            draggable={false}
+          />
         </div>
       </div>
     </div>
