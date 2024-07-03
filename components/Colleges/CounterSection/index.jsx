@@ -11,11 +11,11 @@ const CounterSection = () => {
         className={`${styles.counters} d-flex align-items-center justify-content-center`}
       >
         <div className={styles.counter}>
-          <div className={styles.count}>800+</div>
+          <div className={styles.count}>500+</div>
           <div className={styles.subtitle}>Colleges</div>
         </div>
         <div className={styles.counter}>
-          <div className={styles.count}>100+</div>
+          <div className={styles.count}>50+</div>
           <div className={styles.subtitle}>Counsellors</div>
         </div>
         <div className={styles.counter}>
@@ -23,7 +23,7 @@ const CounterSection = () => {
           <div className={styles.subtitle}>Satisfaction rate</div>
         </div>
         <div className={styles.counter}>
-          <div className={styles.count}>1000+</div>
+          <div className={styles.count}>11000+</div>
           <div className={styles.subtitle}>Happy students</div>
         </div>
       </div>

@@ -5,6 +5,7 @@ import CommonTable from "../common/common-table";
 import Image from "next/image";
 import { rankPredictor } from "@/api";
 import ToastMessage from "../common/Toasts";
+import { IoMdArrowRoundForward } from "react-icons/io";
 
 const tableData = {
   columns: [
@@ -49,7 +50,23 @@ const CollegePredictorComponent = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    if (name === "score") {
+      if (!!value && +value >= 1 && +value <= 720) {
+        setFormData({ ...formData, [name]: value });
+      }
+      if (!value) {
+        setFormData({ ...formData, [name]: value });
+      }
+    } else if (name === "rank") {
+      if (!!value && +value >= 1 && +value <= 2300000) {
+        setFormData({ ...formData, [name]: value });
+      }
+      if (!value) {
+        setFormData({ ...formData, [name]: value });
+      }
+    } else {
+      setFormData({ ...formData, [name]: value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -223,7 +240,7 @@ const CollegePredictorComponent = () => {
             <p>
               NEET 2024 exam is on 5th May 2024. NEET qualifying percentile is
               50 for General category and 40 for reserved categories. The
-              expected NEET 2024 cutoff is 720-130 for General/EWS and 129-105
+              expected NEET 2024 cutoff is 720-164 for General/EWS and 163-129
               for reserved categories. Only candidates meeting the qualifying
               cutoff will be eligible for counseling.
             </p>
@@ -272,14 +289,25 @@ const CollegePredictorComponent = () => {
           <div className="mb-4">
             <div className={styles.title}>College veda facilities</div>
             <div>
-              <ol type="1">
-                <li>Seat locking facilities</li>
-                <li>Counselling support</li>
-                <li>Seat locking facilities</li>
-                <li>Provide college information</li>
-                <li>Reliable admission procedure</li>
-                <li>
-                  Follow following steps for confirming seat
+              <div>
+                <div>
+                  <IoMdArrowRoundForward /> Seat locking facilities
+                </div>
+                <div>
+                  <IoMdArrowRoundForward /> Counselling support
+                </div>
+                <div>
+                  <IoMdArrowRoundForward /> Seat locking facilities
+                </div>
+                <div>
+                  <IoMdArrowRoundForward /> Provide college information
+                </div>
+                <div>
+                  <IoMdArrowRoundForward /> Reliable admission procedure
+                </div>
+                <div>
+                  <IoMdArrowRoundForward /> Follow following steps for
+                  confirming seat
                   <ol type="a">
                     <li>Planning</li>
                     <li>Cut-off analysis</li>
@@ -287,8 +315,8 @@ const CollegePredictorComponent = () => {
                     <li>Hire on expert</li>
                     <li>Act and achieve</li>
                   </ol>
-                </li>
-              </ol>
+                </div>
+              </div>
             </div>
           </div>
           <Image

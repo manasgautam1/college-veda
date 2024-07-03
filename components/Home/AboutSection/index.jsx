@@ -5,7 +5,7 @@ import Image from "next/image";
 const infoContent = [
   {
     icon: "/assets/images/home/about/about-icon-1.svg",
-    title: "100+",
+    title: "50+",
     subtitle: "counsellors",
   },
   {
@@ -15,7 +15,7 @@ const infoContent = [
   },
   {
     icon: "/assets/images/home/about/about-icon-3.svg",
-    title: "1000+",
+    title: "11000+",
     subtitle: "happy students",
   },
 ];

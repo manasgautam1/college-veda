@@ -90,7 +90,7 @@ const Footer = () => {
                 </Link>
               </div>
               <div className={`${styles.footerLinks} col-6`}>
-                <div className={styles.footerLinksTitle}>Popular cities</div>
+                <div className={styles.footerLinksTitle}>Popular states</div>
                 {states?.map((item, index) => (
                   <Link
                     key={`footer-states-${index}`}
@@ -100,7 +100,6 @@ const Footer = () => {
                     {item.name}
                   </Link>
                 ))}
-                <Link href="" className={styles.footerLink}></Link>
               </div>
             </div>
           </div>

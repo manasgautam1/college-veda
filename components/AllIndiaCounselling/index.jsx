@@ -79,7 +79,7 @@ const AllIndiaCounsellingComponent = () => {
 
   return (
     <div className={styles.cutoffSection}>
-      <BreadcrumbSection title="All India Couselling" />
+      <BreadcrumbSection title="All India Counselling" />
       <div className="container-lg py-5">
         <div className={styles.content}>
           <div className="mb-4">
