@@ -65,7 +65,7 @@ const StateCounsellingComponent = () => {
               ))}
             </ol>
             <Image
-              src="/assets/images/common/state-counselling-img-1.webp"
+              src="/assets/images/common/state-counselling-img-1.avif"
               width="0"
               height="0"
               className="w-100 h-auto"
