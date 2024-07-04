@@ -42,7 +42,10 @@ const linksList = [
 const StateCounsellingComponent = () => {
   return (
     <div className={styles.cutoffSection}>
-      <BreadcrumbSection title="State Counselling" />
+      <BreadcrumbSection
+        imgURL="/assets/images/breadcrumbs/rank-predictor.webp"
+        title="State Counselling"
+      />
       <div className="container-lg py-5">
         <div className={styles.content}>
           <div className="mb-4">

@@ -79,7 +79,10 @@ const AllIndiaCounsellingComponent = () => {
 
   return (
     <div className={styles.cutoffSection}>
-      <BreadcrumbSection title="All India Counselling" />
+      <BreadcrumbSection
+        imgURL="/assets/images/breadcrumbs/rank-predictor.webp"
+        title="All India Counselling"
+      />
       <div className="container-lg py-5">
         <div className={styles.content}>
           <div className="mb-4">
