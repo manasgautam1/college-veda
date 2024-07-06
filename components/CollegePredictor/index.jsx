@@ -212,7 +212,7 @@ const CollegePredictorComponent = () => {
           </div>
           <div className="col-md-5">
             <Image
-              src="/assets/images/home/colleges/college-cover.webp"
+              src="/assets/images/common/college-image.avif"
               width="0"
               height="0"
               className="w-100 h-100"

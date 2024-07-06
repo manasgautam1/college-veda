@@ -10,7 +10,7 @@ const WhoSection = () => {
         <div className="row">
           <div className="col-sm-5 order-sm-1 order-2 mt-sm-0 mt-4">
             <Image
-              src="/assets/images/home/colleges/college-cover.webp"
+              src="/assets/images/common/college-image.avif"
               width="0"
               height="0"
               className="w-100 h-100"
