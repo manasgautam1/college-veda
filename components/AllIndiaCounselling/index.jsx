@@ -7,7 +7,7 @@ import CommonTable from "../common/common-table";
 
 const AllIndiaCounsellingComponent = () => {
   const categoryWiseTable = {
-    tableName: "Students Appeared for NEET 2024 Category wise",
+    tableName: "Students Appeared for NEET 2025 Category wise",
     columns: [
       {
         name: "Category",
@@ -33,7 +33,7 @@ const AllIndiaCounsellingComponent = () => {
   };
 
   const analysisTable = {
-    tableName: "Analysis of Students Appeared for NEET 2024 Exam",
+    tableName: "Analysis of Students Appeared for NEET 2025 Exam",
     columns: [
       {
         name: "Year",
@@ -43,7 +43,7 @@ const AllIndiaCounsellingComponent = () => {
       },
     ],
     rows: [
-      ["2024", "23,33,297"],
+      ["2025", "23,33,297"],
       ["2023", "20,87,445"],
       ["2022", "18,72,343"],
       ["2021", "16,14,777"],
@@ -52,16 +52,16 @@ const AllIndiaCounsellingComponent = () => {
   };
 
   const resultsTable = {
-    tableName: "NEET 2024 Results Statistics",
+    tableName: "NEET 2025 Results Statistics",
     columns: [
       {
         name: "Category",
       },
       {
-        name: "Registered 2024",
+        name: "Registered 2025",
       },
       {
-        name: "Appeared 2024",
+        name: "Appeared 2025",
       },
       {
         name: "Qualified",
@@ -91,12 +91,12 @@ const AllIndiaCounsellingComponent = () => {
               Graduate (BAMS) Seats
             </h1>
             <p>
-              All the eligible candidates who qualified in NEET(UG)-2024
+              All the eligible candidates who qualified in NEET(UG)-2025
               examination and aspiring for admission in Under Graduate
               (BAMS/BSMS/BUMS/BHMS) courses are hereby informed that Counselling
               for All India Quota seats under Government, Government Aided,
               Deemed Universities, Central Universities, and National Institutes
-              for the session 2024-25 will be conducted by Ayush Admissions
+              for the session 2025-25 will be conducted by Ayush Admissions
               Central Counseling Committee (AACCC), Ministry of Ayush,
               Government of India.
             </p>
@@ -136,10 +136,10 @@ const AllIndiaCounsellingComponent = () => {
           </div>
           <div className="mb-4">
             <h3 className={styles.title}>
-              Students Appeared for NEET 2024 Category wise
+              Students Appeared for NEET 2025 Category wise
             </h3>
             <p>
-              In the NEET 2024 examination, a total of 24 lakh students have
+              In the NEET 2025 examination, a total of 24 lakh students have
               registered. Among them, 42.80% are male candidates, accounting for
               10 Lakh+ registrations, while female candidates make up 57.20%
               with 13,63,216 registrations. There are 24 registrations from the
@@ -150,13 +150,13 @@ const AllIndiaCounsellingComponent = () => {
           </div>
           <div className="mb-4">
             <h3 className={styles.title}>
-              Analysis of Students Appeared for NEET 2024 Exam
+              Analysis of Students Appeared for NEET 2025 Exam
             </h3>
             <p>
               The number of students who took the NEET exam in a given year is
               shown in the table below. Note that the relevant authorities have
-              not formally related to NEET 2024 statistics. The figure provided
-              for NEET 2024 represents a tentative analysis.
+              not formally related to NEET 2025 statistics. The figure provided
+              for NEET 2025 represents a tentative analysis.
             </p>
             <CommonTable tableData={analysisTable} />
           </div>
@@ -165,10 +165,10 @@ const AllIndiaCounsellingComponent = () => {
           </div>
           <div className="mb-4">
             <h1 className={styles.title}>
-              NEET Counselling 2024 Documents Required
+              NEET Counselling 2025 Documents Required
             </h1>
             <p>
-              To participate in NEET Counselling 2024, candidates need to
+              To participate in NEET Counselling 2025, candidates need to
               provide the following documents:
             </p>
             <ol type="1">

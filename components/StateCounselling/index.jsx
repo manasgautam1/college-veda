@@ -74,7 +74,7 @@ const StateCounsellingComponent = () => {
               draggable={false}
             />
             <Image
-              src="/assets/images/common/state-counselling-img-2.webp"
+              src="/assets/images/common/state-counselling-img-2.avif"
               width="0"
               height="0"
               className="w-100 h-auto"
@@ -83,7 +83,7 @@ const StateCounsellingComponent = () => {
               draggable={false}
             />
             <Image
-              src="/assets/images/common/state-counselling-img-3.webp"
+              src="/assets/images/common/state-counselling-img-3.avif"
               width="0"
               height="0"
               className="w-100 h-auto"

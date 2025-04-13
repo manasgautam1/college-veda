@@ -5,16 +5,16 @@ import CommonTable from "../common/common-table";
 
 const AllIndiaCutoffComponent = () => {
   const tableData = {
-    tableName: "NEET cutoff 2024",
+    tableName: "NEET cutoff 2025",
     columns: [
       {
         name: "Category",
       },
       {
-        name: "NEET 2024 Cut-off Percentile",
+        name: "NEET 2025 Cut-off Percentile",
       },
       {
-        name: "NEET Cut Off 2024",
+        name: "NEET Cut Off 2025",
       },
     ],
     rows: [
@@ -29,19 +29,19 @@ const AllIndiaCutoffComponent = () => {
     <div className={styles.cutoffSection}>
       <BreadcrumbSection
         imgURL="/assets/images/breadcrumbs/all-india-rank.webp"
-        title="NEET Cut Off 2024 Out"
-        subtitle="NEET Cut Off 2024 has been released by NTA category wise."
+        title="NEET Cut Off 2025 Out"
+        subtitle="NEET Cut Off 2025 has been released by NTA category wise."
       />
 
       <div className="container-lg py-5">
         <div className={styles.content}>
           <div className="mb-4">
-            <h1 className={styles.title}>NTA NEET Cut Off 2024 Out</h1>
+            <h1 className={styles.title}>NTA NEET Cut Off 2025 Out</h1>
             <p>
               <strong>
-                NEET Cut Off 2024 has been released by the National Testing
+                NEET Cut Off 2025 has been released by the National Testing
                 Agency on its official website www.neet.nta.nic.in along with
-                NEET UG Result 2024.
+                NEET UG Result 2025.
               </strong>{" "}
               The cut off scores have been released separately for the
               candidates belonging to different categories. This year, a total
@@ -50,24 +50,24 @@ const AllIndiaCutoffComponent = () => {
               dental colleges in India. The cut off is set by the National
               Testing Agency (NTA), which conducts the NEET exam. The cut-off
               varies from year to year and from college to college. To prepare
-              for the NEET 2024, Students need to check the last year cut off.
+              for the NEET 2025, Students need to check the last year cut off.
             </p>
           </div>
           <div className="mb-4">
-            <h2 className={styles.title}>NEET UG Cut Off 2024</h2>
+            <h2 className={styles.title}>NEET UG Cut Off 2025</h2>
             <p>
               The Category-wise cut off marks range and percentile score for the
-              NTA NEET UG exam 2024 have been released by the National Testing
+              NTA NEET UG exam 2025 have been released by the National Testing
               Agency (NTA). The range of qualifying marks this year increased as
               compared to last year.{" "}
               <strong>
-                The NEET cut off 2024 for unreserved (UR) category students has
+                The NEET cut off 2025 for unreserved (UR) category students has
                 increased from 720-137 in NEET UG last year to 720-164.
               </strong>{" "}
-              The NEET cut off 2024 for general category candidates is the 50th
+              The NEET cut off 2025 for general category candidates is the 50th
               percentile. The NEET cut off for other categories has also been
               increased this year. Let's have a look at the category-wise NEET
-              UG cut off 2024.
+              UG cut off 2025.
             </p>
           </div>
           <CommonTable tableData={tableData} />
