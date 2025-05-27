@@ -3,11 +3,14 @@ import Head from "next/head";
 const SEO = ({ pageTitle }) => {
   const title = `College Veda | ${pageTitle}`;
   return (
-   <title>{title}</title>
+    <Head>
+      <title>{title}</title>
       <meta httpEquiv="x-ua-compatible" content="ie=edge" />
       
       {/* Optimized Meta Description */}
-      <meta name="description" content=" Discover the top private BAMS colleges in India with the lowest fees. Explore rankings, admission details, and expert guidance for your Ayurveda career with College Veda."
+      <meta
+        name="description"
+        content="Discover the top private BAMS colleges in India with the lowest fees. Explore rankings, admission details, and expert guidance for your Ayurveda career with College Veda."
       />
 
       {/* Targeted SEO Keywords */}
