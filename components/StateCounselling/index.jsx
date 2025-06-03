@@ -4,39 +4,49 @@ import styles from "./StateCounselling.module.scss";
 import Image from "next/image";
 import Link from "next/link";
 
+function getDomain(url) {
+  try {
+    const parsedUrl = new URL(url);
+    return parsedUrl.hostname;
+  } catch (error) {
+    console.error("Invalid URL:", url);
+    return null;
+  }
+}
+
 const linksList = [
+  { name: "Andhra Pradesh", link: "https://drntr.uhsap.in/index/" },
   {
-    state: "Uttar Pradesh",
-    link: "https://upayushcounseling.upsdc.gov.in/",
+    name: "Arunachal Pradesh",
+    link: "https://namayush.gov.in/content/arunachal-pradesh",
   },
+  { name: "Assam", link: "https://www.dme.assam.gov.in" },
+  { name: "Bihar", link: "https://www.bceceboard.bihar.gov.in" },
+  { name: "Chhattisgarh", link: "https://www.cghealth.nic.in" },
+  { name: "Delhi", link: "https://fmsc.du.ac.in/unani.htm" },
+  { name: "Goa", link: "https://www.dte.goa.gov.in" },
+  { name: "Gujarat", link: "https://www.medadmgujarat.org" },
+  { name: "Haryana", link: "https://www.skau.in" },
+  { name: "Himachal Pradesh", link: "https://amruhp.ac.in/" },
+  { name: "Jammu and Kashmir", link: "https://www.jkbopee.gov.in/" },
+  { name: "Jharkhand", link: "https://jsamc.in/registration.html" },
+  { name: "Karnataka", link: "https://cetonline.karnataka.gov.in/kea/" },
+  { name: "Kerala", link: "https://www.ceekerala.org" },
+  { name: "Madhya Pradesh", link: "https://www.ayush.mp.gov.in" },
+  { name: "Maharashtra", link: "https://www.mahacet.org" },
   {
-    state: "Punjab",
-    link: "https://graupunjab.org/",
+    name: "Manipur",
+    link: "https://stateayushsocietymanipur.mn.gov.in/counselling",
   },
-  {
-    state: "Uttrakhand",
-    link: "https://uau.ac.in/",
-  },
-  {
-    state: "Karnataka",
-    link: "https://ayush.karnataka.gov.in/",
-  },
-  {
-    state: "Madhya Pradesh",
-    link: "https://mponline.gov.in/",
-  },
-  {
-    state: "Bihar",
-    link: "https://bceceboard.bihar.gov.in/",
-  },
-  {
-    state: "Chattisgarh",
-    link: "https://cgayush.admissions.nic.in/",
-  },
-  {
-    state: "Haryana",
-    link: "https://skau.ac.in/",
-  },
+  { name: "Meghalaya", link: "https://meghealth.gov.in/dhs_mi_ayush.html" },
+  { name: "Odisha", link: "https://www.ogee.nic.in" },
+  { name: "Pondicherry", link: "https://www.centacpuducherry.in/" },
+  { name: "Punjab", link: "https://www.graupunjab.org" },
+  { name: "Rajasthan", link: "https://www.rajugpg.ayushcounselling.in" },
+  { name: "Tamilnadu", link: "https://www.tnnrmu.ac.in" },
+  { name: "Uttar Pradesh", link: "https://upayushcounseling.upsdc.gov.in/" },
+  { name: "Uttrakhand", link: "https://www.uau.ac.in/" },
+  { name: "West Bengal", link: "https://www.wbhealth.gov.in" },
 ];
 
 const StateCounsellingComponent = () => {
@@ -55,15 +65,26 @@ const StateCounsellingComponent = () => {
               the state so that it is easy for you to understand the counseling
               process -
             </p>
-            <ol type="a">
+            <div
+              type="a"
+              className="d-flex align-items-stretch justify-content-center gap-4 flex-wrap"
+            >
               {linksList?.map((item, index) => (
-                <li key={`state-link-${index}`}>
-                  <Link href={item?.link} target="_blank">
-                    {item?.state}
+                <p
+                  key={`state-link-${index}`}
+                  className={`${styles.stateCard} card p-3 text-center`}
+                >
+                  <strong>{item?.name}</strong>
+                  <Link
+                    href={item?.link}
+                    target="_blank"
+                    className={styles.link}
+                  >
+                    {getDomain(item?.link)}
                   </Link>
-                </li>
+                </p>
               ))}
-            </ol>
+            </div>
             <Image
               src="/assets/images/common/state-counselling-img-1.avif"
               width="0"

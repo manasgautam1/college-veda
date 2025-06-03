@@ -21,6 +21,13 @@
     margin: auto;
     display: block;
   }
+  .stateCard {
+    width: 12rem;
+    .link {
+      font-size: .875rem;
+      line-height: 1.25;
+    }
+  }
 }
 
 @media only screen and (max-width: 576px) {
