@@ -1,5 +1,6 @@
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "@/styles/globals.css";
@@ -15,6 +16,7 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Analytics />
+      <SpeedInsights />
       <Component {...pageProps} />
       <ToastContainer
         position="top-right"
