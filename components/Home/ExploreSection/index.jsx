@@ -66,7 +66,6 @@ const ExploreSection = () => {
   const fetchStates = async () => {
     try {
       const res = await getStates();
-      console.log(res);
       setStates(res?.data?.data);
       setLoading(false);
     } catch (err) {

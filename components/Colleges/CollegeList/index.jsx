@@ -12,6 +12,14 @@ import Pagination from "@/components/common/Pagination";
 import Modal from "react-responsive-modal";
 import ApplyForm from "@/components/common/ApplyForm";
 
+const DEFAULT_FILTERS = {
+  page: 1,
+  collegeType: "",
+  state: "",
+  city: "",
+  fullName: "",
+};
+
 function removeEmptyValues(obj) {
   const newObj = {};
   for (const key in obj) {
@@ -28,63 +36,45 @@ const CollegeList = () => {
 
   const [colleges, setColleges] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
   const [totalCount, setTotalCount] = useState(0);
-  const [filters, setFilters] = useState({
-    page: 1,
-    collegeType: "",
-    state: "",
-    city: "",
-    fullName: "",
-  });
+  const [filters, setFilters] = useState(DEFAULT_FILTERS);
+  const [firstLoadDone, setFirstLoadDone] = useState(false);
 
   const [open, setOpen] = useState(false);
-  const [activeCollege, setActiveCollege] = useState("");
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
-  const handleApply = (name) => {
-    setActiveCollege(name);
+  const handleApply = () => {
     onOpenModal();
   };
 
   useEffect(() => {
     if (router.isReady && query) {
-      const { course, state, collegeType } = query;
+      const { course, state, collegeType, page } = query;
       setFilters((prev) => ({
         ...prev,
         course: course || "",
         state: state || "",
         collegeType: collegeType || "",
-        page: currentPage || 1,
+        page: +page || 1,
       }));
+      setFirstLoadDone(true);
     }
-  }, []);
+  }, [router, query]);
 
   useEffect(() => {
-    setFilters((prev) => ({
-      ...prev,
-      page: currentPage,
-    }));
-  }, [currentPage]);
-
-  useEffect(() => {
-    const timeout = setTimeout(() => {
+    if (firstLoadDone) {
       setLoading(true);
       fetchColleges(filters);
-    }, [1000]);
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [filters]);
+    }
+  }, [filters, firstLoadDone]);
 
   const fetchColleges = async (filters) => {
     try {
       const res = await getCollegesWithFilters(filters);
       setColleges([...res?.data?.data]);
-      setCurrentPage(1);
       setTotalPages(res?.data?.totalPages);
       setTotalCount(res?.data?.totalCount);
       setLoading(false);
@@ -93,14 +83,17 @@ const CollegeList = () => {
     }
   };
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    let currQuery = {};
-    currQuery = { ...filters, [name]: value };
+  const setValuesToQuery = (currQuery) => {
     currQuery = removeEmptyValues(currQuery);
     router.query = { ...currQuery };
     router.replace(router);
-    setFilters((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    let currQuery = {};
+    currQuery = { ...filters, [name]: value, page: 1 };
+    setValuesToQuery(currQuery);
   };
 
   const handleApplyFilterBtnClick = () => {
@@ -109,32 +102,12 @@ const CollegeList = () => {
   };
 
   const handleResetBtnClick = () => {
-    setFilters({
-      page: 1,
-      collegeType: "",
-      state: "",
-      city: "",
-      fullName: "",
-    });
-    let currQuery = {
-      page: 1,
-      collegeType: "",
-      state: "",
-      city: "",
-      fullName: "",
-    };
-    currQuery = removeEmptyValues(currQuery);
-    router.query = { ...currQuery };
-    router.replace(router);
-
+    setValuesToQuery(DEFAULT_FILTERS);
     setLoading(true);
-    fetchColleges({
-      page: 1,
-      collegeType: "",
-      state: "",
-      city: "",
-      fullName: "",
-    });
+  };
+
+  const handlePageChange = (page) => {
+    setValuesToQuery({ ...filters, page });
   };
 
   return (
@@ -211,7 +184,7 @@ const CollegeList = () => {
               {filters.state === "" ? "India" : filters.state}
             </p>
             <span>
-              Showing Page {currentPage} of {totalPages}
+              Showing Page {filters.page} of {totalPages}
             </span>
           </div>
           {loading ? (
@@ -283,7 +256,7 @@ const CollegeList = () => {
                                 }}
                               ></span>
                               {GetFirstParaFromRichText(item?.description)
-                                .length > 145 && <>...</>}
+                                ?.length > 145 && <>...</>}
                             </div>
                           </div>
                           <div
@@ -310,10 +283,10 @@ const CollegeList = () => {
                   ))}
                   <Pagination
                     className="pagination-bar"
-                    currentPage={currentPage}
-                    totalCount={totalCount}
+                    currentPage={filters?.page || 1}
+                    totalCount={totalCount || 1}
                     pageSize={15}
-                    onPageChange={(page) => setCurrentPage(page)}
+                    onPageChange={handlePageChange}
                   />
                 </>
               )}

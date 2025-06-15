@@ -14,13 +14,11 @@ const CollegesSection = () => {
   const [loading, setLoading] = useState(true);
   const [typeOfCollege, setTypeOfCollege] = useState("all");
   const [open, setOpen] = useState(false);
-  const [activeCollege, setActiveCollege] = useState("");
 
   const onOpenModal = () => setOpen(true);
   const onCloseModal = () => setOpen(false);
 
   const handleApply = (name) => {
-    setActiveCollege(name);
     onOpenModal();
   };
 
@@ -168,7 +166,7 @@ const CollegesSection = () => {
                               )?.substring(0, 145),
                             }}
                           ></span>
-                          {GetFirstParaFromRichText(item?.description).length >
+                          {GetFirstParaFromRichText(item?.description)?.length >
                             145 && <>...</>}
                         </div>
                       </div>

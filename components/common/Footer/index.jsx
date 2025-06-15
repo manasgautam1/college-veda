@@ -6,20 +6,17 @@ import { getStates } from "@/api";
 
 const Footer = () => {
   const [states, setStates] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   const fetchStates = async () => {
     try {
       const res = await getStates();
       setStates(res?.data?.data);
-      setLoading(false);
     } catch (err) {
       console.log("error", err);
     }
   };
 
   useEffect(() => {
-    setLoading(true);
     fetchStates();
   }, []);
 
